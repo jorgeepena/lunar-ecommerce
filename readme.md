@@ -20,7 +20,6 @@ Clone the repository using this command:
 
 ```
 git clone https://github.com/Eggotron/lunar-ecommerce.git
-
 ```
 ### Step 2
 
@@ -28,7 +27,6 @@ Set up your .env, if key is missing use:
 
 ```
 php artisan key:generate
-
 ```
 
 ### Step 3
@@ -37,7 +35,6 @@ Composer update/install
 
 ```
 composer update
-
 ```
 
 And you are ready now amigo!
@@ -59,7 +56,6 @@ Go ahead and use php artisan serve to use the development locally.
 ```
 sudo apt-get install git
 sudo apt-get install unzip
-
 ```
 
 ### Install CURL + Composer
@@ -77,7 +73,6 @@ sudo phpenmod mcrypt
 sudo phpenmod mbstring
 sudo a2enmod rewrite
 sudo systemctl restart apache2
-
 ```
 
 ### Git CLONE of proyect on HTML folder
@@ -126,10 +121,9 @@ composer update
 
 ```
 service apache2 reload
-
 ```
 
-### Restart Server
+### Last touches
 
 Set up your enviroment config file and update your app key.
 
@@ -137,7 +131,6 @@ Set up your enviroment config file and update your app key.
 lunar-ecommerce/.env
 
 php artisan key:generate
-
 ```
 
 
