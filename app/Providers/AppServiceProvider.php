@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Lunar\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

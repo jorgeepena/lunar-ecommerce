@@ -1,4 +1,4 @@
-<p align="center"><img src="http://werkn.mx/img/logo-lunar.svg"></p>
+<p align="center"><img style="width: 300px;" src="http://werkn.mx/img/logo-lunar.svg"></p>
 
 <p align="center">
 </p>
@@ -6,11 +6,36 @@
 # About Lunar E-Commerce
 #### A collective effort by the community
 
-<strong>Lunar</strong> is an e-commerce solution developed with <a href="https://laravel.com">Laravel</a>. The project main objective is to create a robust, multi-purpose and accesible e-commerce which, as a secondary objective, extend it with the help of plugins that allows for flexible development.
+<strong>Lunar</strong> is an e-commerce solution developed with <a href="https://laravel.com">Laravel</a> using Bootstrap 4.0. The project main objective is to create a robust, multi-purpose and accesible e-commerce which, as a secondary objective, extends its functionality with the help of plugins that allows for flexible development.
 
 ### To-do List
 
-- Nothing for the moment.
+- Personalized Installation / Config (Page Name, SEO Options)
+- Catalog Views
+- User Profile Views
+- WishList Funcionality
+- Multiple User Address
+- Save Payment Methods (!! Security concern here)
+- Admin Dashboard
+- Roles & Permissions
+- Shopping Cart Funcionality
+- Theme Capability
+- Plugin Capability
+- Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
+
+
+### Test Access for Admin / User
+
+Admin:
+
+- admin@lunar.com
+- 12345
+
+User:
+
+- user@lunar.com
+- 12345
+
 
 # Local Install
 

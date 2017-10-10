@@ -1,0 +1,56 @@
+.special-title{
+	position: relative;
+	height: 50px;
+	margin-top: 30px;
+}
+
+.special-title .line{
+	background: #434857;
+	height: 1px;
+	width: 100%;
+	margin-top: -15px;
+	position:  relative;
+	z-index: 1;
+}
+
+.special-title h6{
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	padding: 0px 20px;
+	background-color: #272B30;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+hr{
+	border-top: 1px solid #434857;
+}
+
+.badge{
+	position: absolute;
+	right: 20px;
+	font-size: 80%;
+}
+
+.floating-info{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 15px;
+	height: 15px;
+	color: #fff;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.floating-info i{
+	position: absolute;
+	line-height: 15px;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+}
