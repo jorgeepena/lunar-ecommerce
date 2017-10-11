@@ -6,13 +6,12 @@
 # About Lunar E-Commerce
 #### A collective effort by the community
 
-<strong>Lunar</strong> is an e-commerce solution developed with <a href="https://laravel.com">Laravel</a> using Bootstrap 4.0. The project main objective is to create a robust, multi-purpose and accesible e-commerce which, as a secondary objective, extends its functionality with the help of plugins that allows for flexible development.
+<strong>Lunar</strong> is an e-commerce solution developed with <a href="https://laravel.com">Laravel</a> using <a href="https://getbootstrap.com/">Bootstrap 4.0 </a>. The project main objective is to create a robust, multi-purpose and accesible e-commerce which, as a secondary objective, extends its functionality with the help of plugins that allows for flexible development.
 
 ### To-do List
 
 - Personalized Installation / Config (Page Name, SEO Options)
 - Search Capabilities for Products
-- Catalog Views
 - User Profile Views
 - WishList Funcionality
 - Multiple User Address
@@ -50,8 +49,39 @@ Composer update/install
 composer update
 ```
 
+### Step 4
+
+Migrate Databases
+
+```
+php artisan migrate
+```
+
 And you are ready now amigo!
 Go ahead and use php artisan serve to use the development locally.
+
+### Optional Step
+
+Lunar has Database Seeds prepared for a quick demo. The following code will execute the seeder for Product Table, Admin Table and User Table.
+
+```
+php artisan db:seed
+```
+
+##### User / Admin Details
+
+Access with the following login credentials after seeding your database.
+
+User:
+- user@lunar.com
+- lunar12345
+
+Admin:
+- admin@lunar.com
+- lunar12345
+
+
+<strong>Admin Panel: [domain]/admin</strong>
 
 
 # Server Install

@@ -2,12 +2,26 @@
 
 namespace Lunar\Http\Controllers;
 
+use Session;
+use Auth;
+use Lunar\Store\Cart;
+use Lunar\User;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function profile()
     {
-        return view('user-profile.index');
+    	$orders = Auth::user()->orders;
+    	/*
+        $orders->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $orden;
+        });
+        */
+
+    	return view ('user-profile.index')->with('orders', $orders);
+
     }
 }

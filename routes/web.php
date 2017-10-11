@@ -13,12 +13,12 @@
 
 
 Route::get('/', [
-	'uses' => '\Lunar\Http\Controllers\HomeController@index',
+	'uses' => '\Lunar\Http\Controllers\CatalogController@index',
 	'as' => 'index',
 ]);
 
 Route::get('/catalog', [
-	'uses' => '\Lunar\Http\Controllers\HomeController@catalog',
+	'uses' => '\Lunar\Http\Controllers\CatalogController@greatdetail',
 	'as' => 'great-detail',
 ]);
 
@@ -84,6 +84,13 @@ Route::group(['middleware' => 'guest:admin'], function(){
 		'as' => 'admin.login'
 	]);	
 
+
+});
+
+/* MIDDLEWARE AUTH */
+
+Route::group(['middleware' => 'auth:admin'], function(){
+
 	Route::get('/admin/register-admin', [
 		'uses' => '\Lunar\Http\Controllers\Admin\AuthController@register',
 		'as' => 'admin.register',
@@ -93,12 +100,7 @@ Route::group(['middleware' => 'guest:admin'], function(){
 		'uses' => '\Lunar\Http\Controllers\Admin\AuthController@postRegister',
 		'as' => 'admin.register',
 	]);
-});
-
-/* MIDDLEWARE AUTH */
-
-Route::group(['middleware' => 'auth:admin'], function(){
-
+	
 	Route::get('/admin', [
 		'uses' => '\Lunar\Http\Controllers\Admin\DashboardController@dashboard',
 		'as' => 'admin.dashboard'

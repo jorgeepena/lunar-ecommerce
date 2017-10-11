@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+		$products = Product::all()->take(3);
+		return view('home')->with('products', $products);
     }
 }

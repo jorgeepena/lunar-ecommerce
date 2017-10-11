@@ -48,8 +48,27 @@
 		       <h3>Order Summary</h3>
 		       <hr>
 
-		       <h5>Title</h5>
-		       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in eros odio. Etiam magna sem, condimentum ac neque ac, tincidunt lacinia quam. Pellentesque sit amet mi vel magna convallis rhoncus. Donec a luctus ante. Praesent ut lobortis nisi. Integer ac eros quis orci lacinia pretium. Nulla urna ipsum, suscipit vitae condimentum id, pretium fringilla nisl. Nullam enim metus, scelerisque et mollis a, mollis eu turpis. In eget velit tincidunt, laoreet sem et, accumsan lacus. Donec vel felis justo. Nullam porttitor arcu ut elementum pulvinar. Mauris ac ipsum et enim vehicula hendrerit. Duis bibendum, leo eget euismod tempor, purus dui tristique dolor, sed fermentum eros dui vel est. Sed metus augue, vehicula id mi bibendum, ultrices malesuada turpis. </p>
+		       {{-- 
+		       @foreach($orders as $order)
+				<div class="card card-default">
+					<div class="card-body">
+						<ul class="list-group">
+							@foreach($order->cart->items as $item)
+							<li class="list-group-item">
+								<span class="badge">$ {{ $item['price'] }}</span>
+
+								{{ $item['item']['name']}} | {{ $item['qty'] }} Units.
+							</li>
+							@endforeach
+						</ul>
+					</div>
+					<div class="card-footer">
+						<strong>Total: $ {{ $order->cart->totalPrice }}</strong>
+						<span class="label label-info pull-right" style="margin-top: 3px;">Date of Purchase: {{ $order->created_at }}</span>
+					</div>
+				</div>
+				@endforeach
+				--}}
 		    </section>
 	    </div>
 	</div>

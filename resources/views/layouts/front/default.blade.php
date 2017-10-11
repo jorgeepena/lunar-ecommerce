@@ -12,6 +12,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    @yield('stylesheets')
 </head>
 <body>
     <div id="app">
@@ -29,7 +33,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Catalog</a>
+                            <a class="nav-link" href="{{ route('great-detail') }}">Catalog</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -45,7 +49,7 @@
                                 <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                                 <a class="dropdown-item" href="{{ route('register') }}">Register</a>
                                 @else
-                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a>
                                 <a class="dropdown-item" href="#">Your Wishlist</a>
                                 <hr>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -61,6 +65,13 @@
                             </div>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i> Shopping Cart
+                            <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+
+                            </a>
+                        </li>
+
                         <form class="form-inline my-2 my-lg-0 ml-3" role="search" action="{{ route('search.query') }}">
                             <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -70,40 +81,17 @@
             </div>
         </nav>
 
+        @include('partials._messages')
         @yield('content')
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <ul class="list-unstyled">
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Catalog</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col">
-                        <ul class="list-unstyled">
-                            <li><a href="">Login</a></li>
-                            <li><a href="">Register</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col">
-                        <ul class="list-unstyled">
-                            <li><a href="">Privacy Policy</a></li>
-                            <li><a href="">Termns & Conditions</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </footer>
+        @include('layouts.utilities.footer')
     </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    @yield('scripts')
 </body>
 </html>

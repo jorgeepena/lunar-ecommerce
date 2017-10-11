@@ -5,7 +5,6 @@ namespace Lunar\Http\Controllers\Admin;
 use Session;
 use Auth;
 
-use Lunar\User;
 use Lunar\Admin;
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;

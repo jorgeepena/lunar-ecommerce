@@ -15,33 +15,32 @@ class CatalogController extends Controller
 {
     public function index()
 	{
-
 		$products = Product::all()->take(3);
 
-		return view('front.catalog.index')->with('products', $products);;
+		return view('home')->with('products', $products);
 	}
 
     public function greatdetail()
     {
     	$products = Product::all();
 
-    	return view('front.catalog.great-detail')->with('products', $products);
+    	return view('catalog.great-detail')->with('products', $products);
     }
 
     public function detail(){
-    	return view('front.catalog.detail');
+    	return view('catalog.detail');
     }
 
     public function cart()
     {
     	if (!Session::has('cart')) {
-    		return view('front.checkout.cart');
+    		return view('checkout.cart');
     	}
 
     	$oldCart = Session::get('cart');
     	$cart = new Cart($oldCart);
 
-    	return view('front.checkout.cart')->with('products', $cart->items)->with('totalPrice', $cart->totalPrice);
+    	return view('checkout.cart')->with('products', $cart->items)->with('totalPrice', $cart->totalPrice);
     }
 
     public function addCart(Request $request, $id)
@@ -89,20 +88,20 @@ class CatalogController extends Controller
     public function checkout()
     {
     	if (!Session::has('cart')) {
-    		return view('front.checkout.cart');
+    		return view('checkout.cart');
     	}
 
     	$oldCart = Session::get('cart');
     	$cart = new Cart($oldCart);
     	$total = $cart->totalPrice;
 
-    	return view('front.checkout.index')->with('total', $total);
+    	return view('checkout.index')->with('total', $total);
     }
 
     public function postCheckout(Request $request)
     {
     	if (!Session::has('cart')) {
-    		return redirect()->view('front.checkout.cart');
+    		return redirect()->view('checkout.cart');
     	}
 
     	$oldCart = Session::get('cart');

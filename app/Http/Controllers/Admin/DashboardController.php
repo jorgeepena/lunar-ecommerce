@@ -4,6 +4,12 @@ namespace Lunar\Http\Controllers\Admin;
 
 use Session;
 use Auth;
+
+use Lunar\Admin;
+use Lunar\User;
+use Lunar\Product;
+use Lunar\Order;
+
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;
 
@@ -11,13 +17,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
 	{
-
-        $clientes = User::count();
-        $clientes_nuevos = User::where('created_at', '>=', Carbon::now()->subWeek())->count();
-        $crm = Matriz::count();
-        $proyectos = Proyecto::count();
-
-		return view('back.dashboard')->with('clientes', $clientes)->with('clientes_nuevos', $clientes_nuevos)->with('crm', $crm)->with('proyectos', $proyectos);
+		return view('back.dashboard');
 	}
 
     public function profile()

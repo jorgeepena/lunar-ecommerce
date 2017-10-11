@@ -5,7 +5,7 @@
 <div class="container">
 	@if(Session::has('cart'))
 		<div class="row">
-			<div class="col-md-8 offset-md-2">
+			<div class="col-md-8 ml-auto mr-auto">
 				<h2><i class="fa fa-shopping-cart"></i> Shopping Cart</h2>
 				<br>
 				<ul clas="list-group">
@@ -46,7 +46,7 @@
 	@else
 
 		<div class="row">
-			<div class="col-md-6 offset-md-3 text-center">
+			<div class="col-md-6 ml-auto mr-auto text-center">
 				<h2>You haven't added products <i class="fa fa-frown-o"></i></h2>
 				<br>
 				<a href="{{ route('great-detail') }}" class="btn btn-lg btn-default">Start filling your cart!</a>
