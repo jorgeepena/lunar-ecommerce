@@ -17,6 +17,11 @@ Route::get('/', [
 	'as' => 'index',
 ]);
 
+Route::get('/catalog', [
+	'uses' => '\Lunar\Http\Controllers\HomeController@catalog',
+	'as' => 'great-detail',
+]);
+
 Route::get('/search', [
     'uses' => '\Lunar\Http\Controllers\Admin\SearchController@query',
     'as' => 'search.query',
@@ -34,9 +39,37 @@ Route::group(['middleware' => 'auth'], function(){
 		'as' => 'profile.index',
 	]);
 
+	/* Checkout Process */
+
+	Route::get('/checkout',[
+		'uses' => 'CatalogController@checkout',
+		'as' => 'checkout',
+	]);
+
+	Route::post('/checkout',[
+		'uses' => 'CatalogController@postCheckout',
+		'as' => 'checkout',
+	]);
+
+
 });
 
+/* Shopping Cart */
 
+Route::get('/cart/{id}',[
+	'uses' => 'CatalogController@addCart',
+	'as' => 'add-cart',
+]);
+
+Route::get('/cart',[
+	'uses' => 'CatalogController@cart',
+	'as' => 'cart',
+]);
+
+Route::get('/substract/{id}',[
+	'uses' => 'CatalogController@removeOne',
+	'as' => 'cart.substract',
+]);
 
 /* Admin Dashboard */
 

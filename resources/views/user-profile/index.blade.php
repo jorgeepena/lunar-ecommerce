@@ -45,7 +45,7 @@
 
 		    <!-- PROFILE INFORMATION -->
 		    <section class="col-md-8">
-		       <h3>Main View</h3>
+		       <h3>Order Summary</h3>
 		       <hr>
 
 		       <h5>Title</h5>
