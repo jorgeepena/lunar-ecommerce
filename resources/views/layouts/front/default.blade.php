@@ -27,9 +27,11 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Catalog</a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @guest
@@ -58,6 +60,11 @@
                                 @endguest
                             </div>
                         </li>
+
+                        <form class="form-inline my-2 my-lg-0 ml-3" role="search" action="{{ route('search.query') }}">
+                            <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
                     </ul>
                 </div>
             </div>

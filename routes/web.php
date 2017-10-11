@@ -17,9 +17,26 @@ Route::get('/', [
 	'as' => 'index',
 ]);
 
+Route::get('/search', [
+    'uses' => '\Lunar\Http\Controllers\Admin\SearchController@query',
+    'as' => 'search.query',
+]);
+
 /* Front-End Client */
 
 Auth::routes();
+
+
+Route::group(['middleware' => 'auth'], function(){
+
+	Route::get('/profile', [
+		'uses' => '\Lunar\Http\Controllers\UserController@profile',
+		'as' => 'profile.index',
+	]);
+
+});
+
+
 
 /* Admin Dashboard */
 

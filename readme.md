@@ -11,6 +11,7 @@
 ### To-do List
 
 - Personalized Installation / Config (Page Name, SEO Options)
+- Search Capabilities for Products
 - Catalog Views
 - User Profile Views
 - WishList Funcionality
@@ -22,19 +23,6 @@
 - Theme Capability
 - Plugin Capability
 - Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
-
-
-### Test Access for Admin / User
-
-Admin:
-
-- admin@lunar.com
-- 12345
-
-User:
-
-- user@lunar.com
-- 12345
 
 
 # Local Install

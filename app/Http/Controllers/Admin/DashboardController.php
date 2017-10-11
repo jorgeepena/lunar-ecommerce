@@ -26,14 +26,14 @@ class DashboardController extends Controller
 
         $tareas = Tarea::where('admin_id' , $admin->id )->get();
 
-        return view('back.auth.perfil')->with('admin', $admin)->with('tareas', $tareas);
+        return view('back.auth.profile')->with('admin', $admin)->with('tareas', $tareas);
     }
 
     public function editProfile($id)
     {
         $admin = Auth::guard('admin')->user();
 
-        return view('back.auth.editar')->with('admin', $admin);
+        return view('back.auth.edit')->with('admin', $admin);
     }
 
     public function updateProfile(Request $request, $id)

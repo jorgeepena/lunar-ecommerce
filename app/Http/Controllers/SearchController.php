@@ -1,7 +1,6 @@
 <?php
 
-namespace Lunar\Http\Controllers\Admin;
-
+namespace Lunar\Http\Controllers;
 
 use DB;
 use Auth;
@@ -9,7 +8,6 @@ use Auth;
 use Lunar\User;
 
 use Illuminate\Http\Request;
-use Lunar\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
