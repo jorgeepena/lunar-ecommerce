@@ -12,7 +12,8 @@
         "stripe/stripe-php": "3.*",
         "mews/purifier": "^2.0",
         "intervention/image": "^2.3",
-        "uxweb/sweet-alert": "^1.4"
+        "uxweb/sweet-alert": "^1.4",
+        "nesbot/carbon": "^1.22"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
