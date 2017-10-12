@@ -55,7 +55,7 @@ class CatalogController extends Controller
 
     	//dd( $request->session()->get('cart') );
 
-    	return redirect()->route('great-detail');
+    	return redirect()->back();
 
     }
 
