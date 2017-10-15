@@ -27,8 +27,11 @@ class CatalogController extends Controller
     	return view('catalog.great-detail')->with('products', $products);
     }
 
-    public function detail(){
-    	return view('catalog.detail');
+    public function detail($id){
+
+        $product = Product::find($id);
+
+    	return view('catalog.detail')->with('product', $product);
     }
 
     public function cart()

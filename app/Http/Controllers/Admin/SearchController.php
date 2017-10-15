@@ -7,6 +7,7 @@ use DB;
 use Auth;
 
 use Lunar\User;
+use Lunar\Product;
 
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;
@@ -17,11 +18,16 @@ class SearchController extends Controller
     {	
     	$query = $request->input('query');
 
-    	$clientes = User::where(DB::raw('name'), 'LIKE', "%{$query}%")
+    	$clients = User::where(DB::raw('name'), 'LIKE', "%{$query}%")
     		->orWhere('user', 'LIKE', "%{$query}%")
     		->orWhere('company', 'LIKE', "%{$query}%")
     		->get();
 
-        return view('search.query')->with('clientes', $clientes);
+    	$products = Product::where(DB::raw('name'), 'LIKE', "%{$query}%")
+    		->orWhere('description', 'LIKE', "%{$query}%")
+    		->orWhere('sku', 'LIKE', "%{$query}%")
+    		->get();
+
+        return view('search.query')->with('clients', $clients)->with('products', $products);
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container my-5">
 	@if(Session::has('cart'))
 		<div class="row">
 			<div class="col-md-8 ml-auto mr-auto">
@@ -11,7 +11,7 @@
 				<ul clas="list-group">
 					@foreach($products as $product)
 						<li class="list-group-item">
-							<span class="badge">{{ $product['qty'] }}</span>
+							<span class="badge badge-primary">{{ $product['qty'] }}</span>
 							<strong>{{ $product['item']['name'] }}</strong>
 							<span class="label label-success"> $ {{ $product['price'] }}</span>
 

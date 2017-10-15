@@ -23,8 +23,14 @@ Route::get('/catalog', [
 ]);
 
 Route::get('/search', [
-    'uses' => '\Lunar\Http\Controllers\Admin\SearchController@query',
+    'uses' => '\Lunar\Http\Controllers\SearchController@query',
     'as' => 'search.query',
+]);
+
+
+Route::get('/catalog/{id}', [
+    'uses' => '\Lunar\Http\Controllers\CatalogController@detail',
+    'as' => 'product.detail',
 ]);
 
 /* Front-End Client */

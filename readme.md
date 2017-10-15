@@ -8,20 +8,31 @@
 
 <strong>Lunar</strong> is an e-commerce solution developed with <a href="https://laravel.com">Laravel</a> using <a href="https://getbootstrap.com/">Bootstrap 4.0 </a>. The project main objective is to create a robust, multi-purpose and accesible e-commerce which, as a secondary objective, extends its functionality with the help of plugins that allows for flexible development.
 
+### Working Modules
+
+- Shopping Cart
+- Checkout Proccess w/ Payment with Stripe
+- Search Functionality
+- Admin Login / Register
+- User Login / Register
+
 ### To-do List
 
+- Multi-language (ES & US)
 - Personalized Installation / Config (Page Name, SEO Options)
-- Search Capabilities for Products
 - User Profile Views
 - WishList Funcionality
-- Multiple User Address
-- Save Payment Methods (!! Security concern here)
+- SLUG for Products
+- Multiple User Addressess
+- Save Payment Methods on User Account (!!! Security concern here !!!)
 - Admin Dashboard
 - Roles & Permissions
-- Shopping Cart Funcionality
 - Theme Capability
 - Plugin Capability
 - Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
+- Related Products on Product Detail
+- Review & Comment Functionality
+- Review & Comment Moderation for Admin
 
 
 # Local Install
