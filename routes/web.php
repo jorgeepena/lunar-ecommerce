@@ -49,8 +49,19 @@ Route::group(['middleware' => 'auth'], function(){
 		'as' => 'profile.address',
 	]);
 
-	/* Checkout Process */
+	Route::get('/profile/addresses/new', [
+		'uses' => '\Lunar\Http\Controllers\UserController@createAddress',
+		'as' => 'profile.new-address',
+	]);
 
+	Route::post('/profile/addresses/new', [
+		'uses' => '\Lunar\Http\Controllers\UserController@storeAddress',
+		'as' => 'profile.store-address',
+	]);
+
+
+
+	/* Checkout Process */
 	Route::get('/checkout',[
 		'uses' => 'CatalogController@checkout',
 		'as' => 'checkout',

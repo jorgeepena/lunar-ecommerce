@@ -37,7 +37,13 @@ class UserController extends Controller
         return view ('user-profile.addresses')->with('user', $user)->with('addresses', $addresses);
     }
 
-    public function storeAddress(Request $request, $id)
+
+    public function createAddress()
+    {
+        return view ('user-profile.create_address');
+    }
+
+    public function storeAddress(Request $request)
     {
         // Validate
         $this -> validate($request, array(
