@@ -14,20 +14,20 @@
 - Checkout Proccess w/ Payment with Stripe
 - Search Functionality
 - Admin Login / Register
+- Admin Dashboard
+- User Profile Views
 - User Login / Register
 - User Order Summary on Profile
+- Multiple User Addressess
 
 ### To-do List
 
 - Easy Package Installation for Laravel Applications
 - Multi-language (ES & US)
 - Personalized Installation / Config (Page Name, SEO Options)
-- User Profile Views
 - WishList Funcionality
 - SLUG for Products
-- Multiple User Addressess
 - Save Payment Methods on User Account (!!! Security concern here !!!)
-- Admin Dashboard
 - Roles & Permissions
 - Theme Capability
 - Plugin Capability
