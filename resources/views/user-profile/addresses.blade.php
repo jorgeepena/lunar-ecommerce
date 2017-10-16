@@ -57,31 +57,22 @@
 
 		    <!-- PROFILE INFORMATION -->
 		    <section class="col-md-8">
-		       <h3>Order Summary</h3>
-		       <hr>
+				<h3>Address List</h3>
+				<hr>
 
-		       @foreach($orders as $order)
-				<div class="card card-default">
-					<div class="card-body">
-						<ul class="list-group">
-							@foreach($order->cart->items as $item)
-							<li class="list-group-item">
-								{{ $item['item']['name']}} | {{ $item['qty'] }} Units.
+		      	@foreach($addresses as $address)
+					<h1>{{ $address->name }}</h1>
+					<p>{{ $address->street }} / {{ $address->street_num }}</p>
 
-								<span class="badge badge-primary float-right">$ {{ $item['price'] }}</span>
-							</li>
-							@endforeach
-							<li class="list-group-item active">
-								Payment ID: {{ $order->payment_id }}
-							</li>
-						</ul>
-					</div>
-					<div class="card-footer">
-						<strong>Total: $ {{ $order->cart->totalPrice }}</strong>
-						<span class="badge badge-secondary pull-right" style="margin-top: 3px;">Date of Purchase: {{ $order->created_at }}</span>
-					</div>
-				</div>
+					<ul>
+						<li>{{ $address->city }}</li>
+						<li>{{ $address->state }}</li>
+						<li>{{ $address->postal_code }}</li>
+						<hr>
+						<li>{{ $address->phone }}</li>
+					</ul>
 				@endforeach
+
 		    </section>
 	    </div>
 	</div>

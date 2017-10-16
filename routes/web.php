@@ -27,7 +27,6 @@ Route::get('/search', [
     'as' => 'search.query',
 ]);
 
-
 Route::get('/catalog/{id}', [
     'uses' => '\Lunar\Http\Controllers\CatalogController@detail',
     'as' => 'product.detail',
@@ -43,6 +42,11 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/profile', [
 		'uses' => '\Lunar\Http\Controllers\UserController@profile',
 		'as' => 'profile.index',
+	]);
+
+	Route::get('/profile/addresses', [
+		'uses' => '\Lunar\Http\Controllers\UserController@addresses',
+		'as' => 'profile.address',
 	]);
 
 	/* Checkout Process */

@@ -101,6 +101,22 @@ class CatalogController extends Controller
     	$cart = new Cart($oldCart);
     	$total = $cart->totalPrice;
 
+        if(Auth::check()){
+            $user = Auth::user();
+
+            $orders = Auth::user()->orders;
+
+            $orders->transform(function($orden, $key){
+                // Cart es el nombre de la columna en la base de datos.
+                $order->cart = unserialize($order->cart);
+                return $order;
+            });
+
+            $addresses = Address::where('user_id', Auth::user()->id)->get();
+
+           return view('checkout.index')->with('total', $total)->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
+        }
+
     	return view('checkout.index')->with('total', $total);
     }
 
@@ -147,6 +163,8 @@ class CatalogController extends Controller
     	}
 
     		Session::forget('cart');
+
+             alert()->success('Your purchase was succesfully completed, take a look at your order summary on "Your Profile".', 'Success!')->persistent("Ok, thanks!");
 
     		return redirect()->route('index')->with('success', "Your purchase was done succesfully!");
     }

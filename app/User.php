@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('Lunar\Store\Order');
     }
+
+    public function addresses()
+    {
+        return $this->hasMany('Lunar\Address');
+    }
 }
