@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Lunar'),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +168,15 @@ return [
          * Package Service Providers...
          */
 
+        // Image Intervention 
+        Intervention\Image\ImageServiceProvider::class,
+
+        // HTML Purifier
+        Mews\Purifier\PurifierServiceProvider::class,
+
+        // Sweet Alert 
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -225,6 +234,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Image' => Intervention\Image\Facades\Image::class,
+
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
 
     ],
 

@@ -15,9 +15,11 @@
 - Search Functionality
 - Admin Login / Register
 - User Login / Register
+- User Order Summary on Profile
 
 ### To-do List
 
+- Easy Package Installation for Laravel Applications
 - Multi-language (ES & US)
 - Personalized Installation / Config (Page Name, SEO Options)
 - User Profile Views

@@ -7,13 +7,13 @@
     "require": {
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
+        "intervention/image": "^2.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "stripe/stripe-php": "3.*",
         "mews/purifier": "^2.0",
-        "intervention/image": "^2.3",
-        "uxweb/sweet-alert": "^1.4",
-        "nesbot/carbon": "^1.22"
+        "nesbot/carbon": "^1.22",
+        "stripe/stripe-php": "^5.3",
+        "uxweb/sweet-alert": "^1.4"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

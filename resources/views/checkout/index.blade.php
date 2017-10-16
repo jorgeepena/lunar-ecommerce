@@ -14,39 +14,39 @@
 
 			<form action="{{ route('checkout') }}" method="POST" id="checkout-form">
 
-				<h3>Información de Orden</h3>
+				<h3>Order Information</h3>
 				<hr>
-				<h5>Información de Contacto</h5>
+				<h5>Contact Information</h5>
 
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="nombre_cliente">Nombre del comprador</label>
-							<input type="text" name="nombre_cliente" id="nombre_cliente" class="form-control" required="">
+							<label for="client_name">Buyers Name / Reciever's Name</label>
+							<input type="text" name="client_name" id="client_name" class="form-control" required="">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="telefono">Teléfono</label>
-							<input type="numbre" name="telefono" id="telefono" class="form-control" required="">
+							<label for="phone">Phone</label>
+							<input type="numbre" name="phone" id="phone" class="form-control" required="">
 						</div>
 					</div>
 				</div>
 			
 				<hr>
-				<h5>Dirección de Envio</h5>
+				<h5>Packaging Address</h5>
 
 				<div class="row">
-					<div class="col-md-10">
+					<div class="col-md-12">
 						<div class="form-group">
-							<label for="calle">Calle</label>
-							<input type="text" name="calle" id="calle" class="form-control" required="">
+							<label for="address_1">Address 1</label>
+							<input type="text" name="address_1" id="address_1" class="form-control" required="">
 						</div>
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-12">
 						<div class="form-group">
-							<label for="num_calle">Número</label>
-							<input type="text" name="num_calle" id="num_calle" class="form-control" required="">
+							<label for="address_2">Address 2</label>
+							<input type="text" name="address_2" id="address_2" class="form-control">
 						</div>
 					</div>
 				</div>
@@ -54,26 +54,35 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
-							<label for="colonia">Colonia</label>
-							<input type="text" name="colonia" id="colonia" class="form-control" required="">
+							<label for="country">Country</label>
+							<input type="text" name="country" id="country" class="form-control" required="">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="state">State</label>
+							<input type="text" name="state" id="state" class="form-control" required="">
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-							<label for="codigo_postal">Postal Code</label>
-							<input type="text" name="codigo_postal" id="codigo_postal" class="form-control" required="">
+							<label for="postal_code">Postal Code</label>
+							<input type="text" name="postal_code" id="postal_code" class="form-control" required="">
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-							<label for="ciudad">City</label>
-							<input type="text" name="ciudad" id="ciudad" class="form-control" required="">
+							<label for="city">City</label>
+							<input type="text" name="city" id="city" class="form-control" required="">
 						</div>
 					</div>
 				</div>
 				
 				<hr>
-				<h3>Datos de Tarjeta</h3>
+				<h3>Card Details</h3>
 				<div class="form-group">
 					<label for="card-name">Name on the Card</label>
 					<input type="text" id="card-name" class="form-control" required="">

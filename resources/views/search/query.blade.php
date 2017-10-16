@@ -26,7 +26,7 @@
 	@else
 
 		<div class="col-md-6">
-			<h5 class="text-uppercase"><small><i class="ionicons ion-images"></i> Products</small> <span class="badge badge-default">{{ $products->count() }}</span></h5>
+			<h5 class="text-uppercase"><small><i class="ionicons ion-images"></i> Products</small> <span class="badge badge-primary">{{ $products->count() }}</span></h5>
 			<hr>
 
 			<ul class="list-unstyled">

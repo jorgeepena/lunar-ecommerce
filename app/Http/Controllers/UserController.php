@@ -14,12 +14,12 @@ class UserController extends Controller
     public function profile()
     {
     	$orders = Auth::user()->orders;
-    	/*
+    	
         $orders->transform(function($order, $key){
             $order->cart = unserialize($order->cart);
-            return $orden;
+            return $order;
         });
-        */
+        
 
     	return view ('user-profile.index')->with('orders', $orders);
 

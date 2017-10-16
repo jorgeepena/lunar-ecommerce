@@ -26,7 +26,6 @@ class CreateOrdersTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->string('postal_code');
-            $table->string('ciudad');
 
             $table->string('phone');
             $table->string('client_name');

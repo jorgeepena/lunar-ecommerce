@@ -2,6 +2,9 @@
 
 namespace Lunar\Http\Controllers;
 
+use Stripe\Stripe;
+use Stripe\Charge;
+
 use Session;
 use Auth;
 
@@ -117,7 +120,7 @@ class CatalogController extends Controller
 			  "amount" => $cart->totalPrice * 100,
 			  "currency" => "mxn",
 			  "source" => $request->input('stripeToken'), 
-			  "description" => "Cobro realizado de prueba"
+			  "description" => "Test Payment Successfull"
 			  ));
 
     		// GUARDAR LA ORDEN
@@ -137,7 +140,7 @@ class CatalogController extends Controller
     		$order->payment_id = $charge->id;
 
     		// Identificar al usuario para guardar sus datos.
-    		Auth::user()->ordenes()->save($orden);
+    		Auth::user()->orders()->save($order);
 
     	} catch(\Excepton $e) {
     			return redirect()->route('checkout')->with('error', $e->getMessage() );
