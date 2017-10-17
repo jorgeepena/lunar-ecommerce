@@ -10,39 +10,7 @@
 
 		    <!-- PROFILE INFORMATION -->
 		    <section class="col-md-7">
-
-		    	<h3>Personal Stats</h3>
-		       	<hr>
-
-		       	<div class="row">
-		       		<div class="col-md-4">
-		       			<div class="card text-white bg-info mb-3">
-							<div class="card-body p-3">
-								<h6 class="card-title text-uppercase"><small>Seen Products</small></h6>
-								<h2 class="card-text">167</h2>
-							</div>
-						</div>
-			       	</div>
-			       	<div class="col-md-4">
-			       		<div class="card text-white bg-warning mb-3">
-							<div class="card-body p-3">
-								<h6 class="card-title text-uppercase"><small>Total Orders</small></h6>
-								<h2 class="card-text">{{ $orders->count() }}</h2>
-							</div>
-						</div>
-			       	</div>
-			       	<div class="col-md-4">
-			       		<div class="card text-white bg-danger mb-3">
-							<div class="card-body p-3">
-								<h6 class="card-title text-uppercase"><small>Addresses Saved</small></h6>
-								<h2 class="card-text">{{ $addresses->count() }}</h2>
-							</div>
-						</div>
-			       	</div>
-		       	</div>
-
-
-		       	<h3 class="mt-3">Order Summary</h3>
+		       	<h3>Order Summary</h3>
 		       	<hr>
 
 		       	@if($orders->count())
@@ -74,6 +42,8 @@
 		       		<p>Visit the store <a href="{{ route('great-detail') }}">here</a> and enjoy.</p>
 		       	</div>
 		       	@endif
+
+		       
 		    </section>
 
 		    <!-- PROFILE INFO -->

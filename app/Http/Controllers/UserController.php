@@ -23,8 +23,24 @@ class UserController extends Controller
         });
         
         $user = Auth::user();
+        $addresses = Address::where('user_id', $user->id)->get();
 
-    	return view ('user-profile.index')->with('orders', $orders)->with('user', $user);
+    	return view ('user-profile.index')->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
+
+    }
+
+    public function orders()
+    {
+        $orders = Auth::user()->orders;
+        
+        $orders->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        
+        $user = Auth::user();
+
+        return view ('user-profile.orders.index')->with('orders', $orders)->with('user', $user);
 
     }
 
@@ -34,13 +50,12 @@ class UserController extends Controller
         $user = Auth::user();
         $addresses = Address::where('user_id', $user->id)->get();
 
-        return view ('user-profile.addresses')->with('user', $user)->with('addresses', $addresses);
+        return view ('user-profile.addresses.index')->with('user', $user)->with('addresses', $addresses);
     }
-
 
     public function createAddress()
     {
-        return view ('user-profile.create_address');
+        return view ('user-profile.addresses.create');
     }
 
     public function storeAddress(Request $request)
@@ -86,4 +101,13 @@ class UserController extends Controller
         alert()->success('Your profile was saved succesfully.', 'Success!')->persistent('Ok, thanks!');
         return redirect()->back();
     }
+
+
+    public function wishlist()
+    {
+        $wishlist = Address::where('user_id', Auth::user()->id)->get();
+
+        return view ('user-profile.wishlist.index')->with('wishlist', $wishlist);
+    }
+
 }

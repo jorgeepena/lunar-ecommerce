@@ -1,19 +1,22 @@
 @extends('layouts.front.default')
 
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-8 ml-auto mr-auto">
-			<h2>Checkout</h2>
-			<hr>
-			<h4>Tu total: $ {{ $total }}</h4>
+<form action="{{ route('checkout') }}" method="POST" id="checkout-form">
+	<div class="container">
+		<div class="row">
 
-			<div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'fade' : '' }}">
-				{{ Session::get('error') }}
+
+
+			<div class="col-md-12">
+				<h2 class="text-uppercase mt-5">Checkout</h2>
+				<hr>
+
+				<div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'fade' : '' }}">
+					{{ Session::get('error') }}
+				</div>
 			</div>
 
-			<form action="{{ route('checkout') }}" method="POST" id="checkout-form">
-
+			<div class="col-md-8">
 				<h3>Order Information</h3>
 				<hr>
 				<h5>Contact Information</h5>
@@ -32,10 +35,9 @@
 						</div>
 					</div>
 				</div>
-			
 				<hr>
-				<h5>Packaging Address</h5>
 
+				<h5>Packaging Address</h5>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
@@ -49,18 +51,14 @@
 							<input type="text" name="address_2" id="address_2" class="form-control">
 						</div>
 					</div>
-				</div>
-				
-				<div class="row">
-					<div class="col-md-4">
+
+					<div class="col-md-12">
 						<div class="form-group">
 							<label for="country">Country</label>
 							<input type="text" name="country" id="country" class="form-control" required="">
 						</div>
 					</div>
-				</div>
 
-				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
 							<label for="state">State</label>
@@ -80,8 +78,8 @@
 						</div>
 					</div>
 				</div>
-				
 				<hr>
+
 				<h3>Card Details</h3>
 				<div class="form-group">
 					<label for="card-name">Name on the Card</label>
@@ -115,59 +113,61 @@
 				</div>
 
 				{{ csrf_field() }}
+			</div>
 
+			<div class="col-md-4">
+				<div class="card p-4">
+					<h4>Total: $ {{ $total }}</h4>
+				</div>
 				<hr>
-
 				<button type="submit" class="btn btn-success btn-lg btn-block">Checkout</button>
-				<br>
-				<br>
-			</form>
+			</div>
 		</div>
 	</div>
-</div>
+</form>
 @endsection
 
 @section('scripts')
-	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-	<script>
-		Stripe.setPublishableKey('pk_test_WBX0VXTDkd7umFsGlw5I8qkF');
+<script>
+	Stripe.setPublishableKey('pk_test_WBX0VXTDkd7umFsGlw5I8qkF');
 
-		var $form = $('#checkout-form');
+	var $form = $('#checkout-form');
 
-		$form.submit(function(event){
+	$form.submit(function(event){
 
-			// No mostrar los errores.
-			$('#change-error').addClass('hidden');
+// No mostrar los errores.
+$('#change-error').addClass('hidden');
 
-			// Pedirle al boton que se desactive al enviar el formulario para que no sea posible enviar varias veces el formulario.
-			$form.find('button').prop('disabled', true);
+// Pedirle al boton que se desactive al enviar el formulario para que no sea posible enviar varias veces el formulario.
+$form.find('button').prop('disabled', true);
 
-			Stripe.card.createToken({
-			name: $('#card-name').val(),
-			  number: $('#card-number').val(),
-			  cvc: $('#card-cvc').val(),
-			  exp_month: $('#card-month').val(),
-			  exp_year: $('#card-year').val()
-			}, stripeResponseHandler);
+Stripe.card.createToken({
+	name: $('#card-name').val(),
+	number: $('#card-number').val(),
+	cvc: $('#card-cvc').val(),
+	exp_month: $('#card-month').val(),
+	exp_year: $('#card-year').val()
+}, stripeResponseHandler);
 
-			return false;
-		});	
+return false;
+});	
 
-		function stripeResponseHandler(status, response){
-			if (response.error) {
-				$('#change-error').removeClass('hidden');
-				$('#change-error').text(response.error.message);
-				$form.find('button').prop('disabled', false);
-			}else{
-				var token = response.id;
+	function stripeResponseHandler(status, response){
+		if (response.error) {
+			$('#change-error').removeClass('hidden');
+			$('#change-error').text(response.error.message);
+			$form.find('button').prop('disabled', false);
+		}else{
+			var token = response.id;
 
-				// Insert the token into the form so it gets submitted to the server:
-			    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+// Insert the token into the form so it gets submitted to the server:
+$form.append($('<input type="hidden" name="stripeToken" />').val(token));
 
-			    // Submit the form:
-			    $form.get(0).submit();
-			}
-		}
-	</script>
+// Submit the form:
+$form.get(0).submit();
+}
+}
+</script>
 @endsection

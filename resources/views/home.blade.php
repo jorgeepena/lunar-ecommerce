@@ -22,7 +22,7 @@
                 <h4 class="card-title">{{ $product->name }}</h4>
                 <p class="card-text">$ {{ $product->price }}</p>
 
-                <p><a href="{{ route('add-cart', ['id' => $product->id]) }}" class="btn btn-default" role="button"><i class="fa fa-cart-plus"></i> Add to Cart</a> 
+                <p><a href="{{ route('add-cart', ['id' => $product->id]) }}" class="btn btn-primary" role="button"><i class="fa fa-cart-plus"></i> Add to Cart</a> 
 
                 <a href="{{ route('product.detail', $product->id) }}" class="btn btn-success" role="button"><i class="fa fa-plus-circle"></i> View Detail</a></p>
             </div>

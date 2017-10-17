@@ -11,6 +11,7 @@ use Auth;
 use Lunar\Store\Order;
 use Lunar\Store\Cart;
 use Lunar\Store\Product;
+use Lunar\Address;
 
 use Illuminate\Http\Request;
 

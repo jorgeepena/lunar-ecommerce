@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="container">
-	<h6 class="section text-uppercase">Search</h6>
+	<h6 class="mt-5 text-uppercase">Search</h6>
+
 	@if(Request::input('query') == NULL)
 	@else
 		<h2 class="description">Items that contain: "{{ Request::input('query') }}"</h2>
@@ -14,7 +15,7 @@
 	@else
 	<div class="alert alert-dismissible alert-info">
 	  <button type="button" class="close" data-dismiss="alert">&times;</button>
-	   We've found a total of: <strong>{{ $products->count() }}</strong> results(s).
+	   We've found a total of: <strong>{{ $products->count() }}</strong> result(s).
 	</div>
 	@endif
 

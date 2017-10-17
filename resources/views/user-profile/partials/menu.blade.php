@@ -1,40 +1,20 @@
-<section class="col-md-4">
-	<div class="card p-4">
-		<!-- Image -->
-		<div class="profile-image">
-			@if( Auth::user()->image == NULL)
-				<img class="card-img-top" src="{{ 'https://www.gravatar.com/avatar/' . md5(strtolower(trim( Auth::user()->email))) . '?d=retro&s=300' }}" alt="{{ Auth::user()->name }}" style="width: 100%;">
-			@else
-				<img class="card-img-top" src="{{ asset('img/users/' . Auth::user()->image ) }}" alt="{{ Auth::user()->name }}">
-			@endif
-
-		</div>
-
-		<div class="profile-info">
-			<h3>{{ Auth::user()->name }}</h3>
-			<h5>{{ Auth::user()->email }}</h5>
-
-			<hr>
-			<h5>INFO</h5>
-		</div>
-	</div>
-
-	<nav class="profile-nav p-4">
-
+<section class="col-md-2">
+	<nav class="profile-nav mt-3">
 		<h5>M E N U</h5>
 		<ul class="list-unstyled">
-			<li><a href="{{ route('profile.index') }}">Overview</a></li>
-			<li><a href="#">Edit Account</a></li>
-			<li><a href="#">Upload Image</a></li>
-			<li><a href="#">My Orders</a></li>
-			<li><a href="{{ route('profile.address') }}">Adressess</a></li>
-			<li><a href="#">My Wishlist</a></li>
+			<li><a href="{{ route('profile.index') }}"><i class="fa fa-eye"></i> Overview</a></li>
+			<li><a href="{{ route('profile.orders') }}"><i class="fa fa-th-list"></i> My Orders</a></li>
+			<li><a href="{{ route('profile.address.index') }}"><i class="fa fa-location-arrow"></i> Adressess</a></li>
+			<li><a href="{{ route('profile.wishlist') }}"><i class="fa fa-star"></i> My Wishlist</a></li>
 			<hr>
-			<li><a href="#">Change Password</a></li>
+			<li><a href="#"><i class="fa fa-pencil-square-o"></i> Edit Account</a></li>
+			<li><a href="#"><i class="fa fa-file-image-o"></i> Upload Image</a></li>
+			<hr>
+			<li><a href="#"><i class="fa fa-lock"></i> Change Password</a></li>
 			<li><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
-                Logout
+                <i class="fa fa-power-off"></i> Logout
             </a></li>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

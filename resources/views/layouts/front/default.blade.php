@@ -55,16 +55,16 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 @guest
-                                <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                                <a class="dropdown-item" href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
+                                <a class="dropdown-item" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> Register</a>
                                 @else
-                                <a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a>
-                                <a class="dropdown-item" href="#">Your Wishlist</a>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}"><i class="fa fa-user"></i> Profile</a>
+                                <a class="dropdown-item" href="{{ route('profile.wishlist') }}"><i class="fa fa-star"></i> Your Wishlist</a>
                                 <hr>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    Logout
+                                    <i class="fa fa-power-off"></i> Logout
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -39,24 +39,43 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
 
+	/* Profile Overview */
+
 	Route::get('/profile', [
 		'uses' => '\Lunar\Http\Controllers\UserController@profile',
 		'as' => 'profile.index',
 	]);
 
+	/* Orders Summary */
+
+	Route::get('/profile/orders', [
+		'uses' => '\Lunar\Http\Controllers\UserController@orders',
+		'as' => 'profile.orders',
+	]);
+
+	/* Address Funcionality */
+
 	Route::get('/profile/addresses', [
 		'uses' => '\Lunar\Http\Controllers\UserController@addresses',
-		'as' => 'profile.address',
+		'as' => 'profile.address.index',
 	]);
 
 	Route::get('/profile/addresses/new', [
 		'uses' => '\Lunar\Http\Controllers\UserController@createAddress',
-		'as' => 'profile.new-address',
+		'as' => 'profile.address.create',
 	]);
 
 	Route::post('/profile/addresses/new', [
 		'uses' => '\Lunar\Http\Controllers\UserController@storeAddress',
-		'as' => 'profile.store-address',
+		'as' => 'profile.address.store',
+	]);
+
+
+	/* Wishlist */
+
+	Route::get('/profile/wishlist', [
+		'uses' => '\Lunar\Http\Controllers\UserController@wishlist',
+		'as' => 'profile.wishlist',
 	]);
 
 

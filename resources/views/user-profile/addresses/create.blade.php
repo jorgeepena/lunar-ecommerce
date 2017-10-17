@@ -15,13 +15,13 @@
 		    			<h3>Create New Address</h3>
 		    		</div>
 		    		<div class="col">
-		    			<a href="{{ route('profile.index') }}" class="btn btn-big btn-danger float-right">Go back</a>
+		    			<a href="{{ route('profile.address.index') }}" class="btn btn-big btn-danger float-right"><i class="fa fa-chevron-left"></i> Go back</a>
 		    		</div>
 		    	</div>
 				
 				<hr>
 
-		      	<form role="form" method="POST" action="{{ route('profile.store-address') }}">
+		      	<form role="form" method="POST" action="{{ route('profile.address.store') }}">
 		      		{{ csrf_field() }}
 		      		<div class="row">
 		      			<div class="col-md-12">
@@ -80,7 +80,7 @@
 
 		      		<div class="row">
 		      			<div class="col-md-8 mr-auto">
-		      				<a href="{{ route('profile.index') }}" class="btn btn-warning">Cancel</a>
+		      				<a href="{{ route('profile.address.index') }}" class="btn btn-warning">Cancel</a>
 
 		      				<button type="submit" class="btn btn-big btn-primary">Save Address</button>
 		      			</div>
