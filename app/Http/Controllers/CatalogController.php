@@ -106,7 +106,7 @@ class CatalogController extends Controller
 
             $orders = Auth::user()->orders;
 
-            $orders->transform(function($orden, $key){
+            $orders->transform(function($order, $key){
                 // Cart es el nombre de la columna en la base de datos.
                 $order->cart = unserialize($order->cart);
                 return $order;
