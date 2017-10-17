@@ -28,26 +28,26 @@ class CatalogController extends Controller
     {
     	$products = Product::all();
 
-    	return view('catalog.great-detail')->with('products', $products);
+    	return view('front.catalog.great-detail')->with('products', $products);
     }
 
     public function detail($id){
 
         $product = Product::find($id);
 
-    	return view('catalog.detail')->with('product', $product);
+    	return view('front.catalog.detail')->with('product', $product);
     }
 
     public function cart()
     {
     	if (!Session::has('cart')) {
-    		return view('checkout.cart');
+    		return view('front.checkout.cart');
     	}
 
     	$oldCart = Session::get('cart');
     	$cart = new Cart($oldCart);
 
-    	return view('checkout.cart')->with('products', $cart->items)->with('totalPrice', $cart->totalPrice);
+    	return view('front.checkout.cart')->with('products', $cart->items)->with('totalPrice', $cart->totalPrice);
     }
 
     public function addCart(Request $request, $id)
@@ -95,7 +95,7 @@ class CatalogController extends Controller
     public function checkout()
     {
     	if (!Session::has('cart')) {
-    		return view('checkout.cart');
+    		return view('front.checkout.cart');
     	}
 
     	$oldCart = Session::get('cart');
@@ -115,16 +115,16 @@ class CatalogController extends Controller
 
             $addresses = Address::where('user_id', Auth::user()->id)->get();
 
-           return view('checkout.index')->with('total', $total)->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
+           return view('front.checkout.index')->with('total', $total)->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
         }
 
-    	return view('checkout.index')->with('total', $total);
+    	return view('front.checkout.index')->with('total', $total);
     }
 
     public function postCheckout(Request $request)
     {
     	if (!Session::has('cart')) {
-    		return redirect()->view('checkout.cart');
+    		return redirect()->view('front.checkout.cart');
     	}
 
     	$oldCart = Session::get('cart');

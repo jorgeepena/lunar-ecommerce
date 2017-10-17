@@ -49,7 +49,7 @@
 			<div class="col-md-6 ml-auto mr-auto text-center">
 				<h2>You haven't added products <i class="fa fa-frown-o"></i></h2>
 				<br>
-				<a href="{{ route('great-detail') }}" class="btn btn-lg btn-default">Start filling your cart!</a>
+				<a href="{{ route('great-detail') }}" class="btn btn-lg btn-primary">Start filling your cart!</a>
 			</div>
 		</div>
 	@endif

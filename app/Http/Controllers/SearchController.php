@@ -20,6 +20,6 @@ class SearchController extends Controller
     		->orWhere('sku', 'LIKE', "%{$query}%")
     		->get();
 
-        return view('search.query')->with('products', $products);
+        return view('front.search.query')->with('products', $products);
     }
 }

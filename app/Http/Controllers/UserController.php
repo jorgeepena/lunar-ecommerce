@@ -25,7 +25,7 @@ class UserController extends Controller
         $user = Auth::user();
         $addresses = Address::where('user_id', $user->id)->get();
 
-    	return view ('user-profile.index')->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
+    	return view ('front.user-profile.index')->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
 
     }
 
@@ -40,7 +40,7 @@ class UserController extends Controller
         
         $user = Auth::user();
 
-        return view ('user-profile.orders.index')->with('orders', $orders)->with('user', $user);
+        return view ('front.user-profile.orders.index')->with('orders', $orders)->with('user', $user);
 
     }
 
@@ -50,12 +50,12 @@ class UserController extends Controller
         $user = Auth::user();
         $addresses = Address::where('user_id', $user->id)->get();
 
-        return view ('user-profile.addresses.index')->with('user', $user)->with('addresses', $addresses);
+        return view ('front.user-profile.addresses.index')->with('user', $user)->with('addresses', $addresses);
     }
 
     public function createAddress()
     {
-        return view ('user-profile.addresses.create');
+        return view ('front.user-profile.addresses.create');
     }
 
     public function storeAddress(Request $request)
@@ -107,7 +107,7 @@ class UserController extends Controller
     {
         $wishlist = Address::where('user_id', Auth::user()->id)->get();
 
-        return view ('user-profile.wishlist.index')->with('wishlist', $wishlist);
+        return view ('front.user-profile.wishlist.index')->with('wishlist', $wishlist);
     }
 
 }

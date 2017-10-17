@@ -6,7 +6,7 @@
 	<div class="container">
 	    <div class="row">
 	    	<!-- PROFILE PICTURE AND MENU -->
-		    @include('user-profile.partials.menu')
+		    @include('front.user-profile.partials.menu')
 
 		    <!-- PROFILE INFORMATION -->
 		    <section class="col-md-8">
@@ -15,7 +15,7 @@
 		    			<h3>Create New Address</h3>
 		    		</div>
 		    		<div class="col">
-		    			<a href="{{ route('profile.address.index') }}" class="btn btn-big btn-danger float-right"><i class="fa fa-chevron-left"></i> Go back</a>
+		    			<a href="{{ route('profile.address.index') }}" class="btn btn-danger float-right"><i class="fa fa-chevron-left"></i> Go back</a>
 		    		</div>
 		    	</div>
 				
@@ -82,7 +82,7 @@
 		      			<div class="col-md-8 mr-auto">
 		      				<a href="{{ route('profile.address.index') }}" class="btn btn-warning">Cancel</a>
 
-		      				<button type="submit" class="btn btn-big btn-primary">Save Address</button>
+		      				<button type="submit" class="btn btn-primary">Save Address</button>
 		      			</div>
 		      		</div>
 		      	</form>

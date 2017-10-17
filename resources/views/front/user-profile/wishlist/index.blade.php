@@ -6,7 +6,7 @@
 	<div class="container">
 	    <div class="row">
 			<!-- PROFILE MENU -->
-		    @include('user-profile.partials.menu')
+		    @include('front.user-profile.partials.menu')
 
 		    <!-- PROFILE INFORMATION -->
 		    <section class="col-md-7">
@@ -26,7 +26,7 @@
 		    </section>
 
 		    <!-- PROFILE INFO -->
-		    @include('user-profile.partials.profile-card')
+		    @include('front.user-profile.partials.profile-card')
 	    </div>
 	</div>
 </div>
