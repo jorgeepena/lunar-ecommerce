@@ -103,11 +103,6 @@ class UserController extends Controller
     }
 
 
-    public function wishlist()
-    {
-        $wishlist = Address::where('user_id', Auth::user()->id)->get();
 
-        return view ('front.user-profile.wishlist.index')->with('wishlist', $wishlist);
-    }
 
 }

@@ -55,7 +55,7 @@ class DashboardController extends Controller
 
         $admin->save();
 
-        Session::flash('exito', 'Tu perfil ha sido editado exitosamente.');
+        Session::flash('success', 'Your profile has been successfuly updated.');
 
         return redirect()->route('admin.perfil');
     }

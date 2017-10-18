@@ -74,10 +74,19 @@ Route::group(['middleware' => 'auth'], function(){
 	/* Wishlist */
 
 	Route::get('/profile/wishlist', [
-		'uses' => '\Lunar\Http\Controllers\UserController@wishlist',
+		'uses' => '\Lunar\Http\Controllers\WishlistController@wishlist',
 		'as' => 'profile.wishlist',
 	]);
 
+	Route::get('/wishlist/add/{slug}', [
+		'uses' => '\Lunar\Http\Controllers\WishlistController@add',
+		'as' => 'wishlist.add',
+	]);
+
+	Route::get('/wishlist/remove/{slug}', [
+		'uses' => '\Lunar\Http\Controllers\WishlistController@destroy',
+		'as' => 'wishlist.remove',
+	]);
 
 
 	/* Checkout Process */
@@ -146,6 +155,8 @@ Route::group(['middleware' => 'auth:admin'], function(){
 		'as' => 'admin.dashboard'
 	]);
 
-	//Route::resource('/admin/productos', 'Admin\ProductoController');
+	Route::resource('/admin/products', 'Admin\ProductController');
+	Route::resource('/admin/categories', 'Admin\CategoryController');
+	Route::resource('/admin/tags', 'Admin\TagController');
 
 });

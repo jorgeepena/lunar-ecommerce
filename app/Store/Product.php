@@ -16,4 +16,10 @@ class Product extends Model
     	'image',
     	'stock',
     ];
+
+    public static function getProductBySlug($slug)
+    {
+        $model = new static;
+        return $model->where('slug', '=', $slug)->first();
+    }
 }

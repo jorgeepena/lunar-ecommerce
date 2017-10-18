@@ -47,18 +47,18 @@
                 var today = new Date();
 
                 var month = new Array();
-                month[0] = "Enero";
-                month[1] = "Febrero";
-                month[2] = "Marzo";
-                month[3] = "Abril";
-                month[4] = "Mayo";
-                month[5] = "Junio";
-                month[6] = "Julio";
-                month[7] = "Agosto";
-                month[8] = "Septiembre";
-                month[9] = "Octubre";
-                month[10] = "Noviembre";
-                month[11] = "Dicimebre";
+                month[0] = "January";
+                month[1] = "February";
+                month[2] = "March";
+                month[3] = "April";
+                month[4] = "May";
+                month[5] = "June";
+                month[6] = "July";
+                month[7] = "August";
+                month[8] = "September";
+                month[9] = "October";
+                month[10] = "November";
+                month[11] = "December";
 
                 var dd = today.getDate();
                 var mm = month[today.getMonth()];
@@ -74,7 +74,7 @@
 
                 //today = mm + '/' + dd + '/' + yyyy;
 
-                document.getElementById('date').innerHTML = dd + ' de ' + mm + ' ' + yyyy;
+                document.getElementById('date').innerHTML = mm + ' ' + dd + ' ' + yyyy;
 
             }
             function checkTime(i) {
@@ -130,7 +130,7 @@
                         <li>
                            <form class="form-inline" role="search" action="#">
                               <div class="input-group">
-                                <input type="search" name="query" class="form-control" placeholder="Estoy buscando...">
+                                <input type="search" name="query" class="form-control" placeholder="I'm searching for...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-primary" type="submit"><i class="ionicons ion-android-search"></i></button>
                                 </span>
@@ -148,7 +148,18 @@
 
                         <li><a class="nav-link flex-sm-fill" href="{{ url('/admin') }}"><i class="ionicons ion-stats-bars"></i> General View</a></li>
 
-                  
+                        <li class="dropdown">
+                            <a href="#" id="dd-group1" class="flex-sm-fill nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ionicons ion-images"></i> Products</a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-group1">
+                            <a class="dropdown-item" href="{{ route('products.create') }}"><i class="ionicons ion-android-add"></i> Add New</a>
+                              <a class="dropdown-item" href="{{ route('products.index') }}"><i class="ionicons ion-ios-eye"></i> See All</a>
+
+                              <a class="dropdown-item" href="{{ route('categories.index') }}"><i class="ionicons ion-grid"></i> Categories</a>
+                              <a class="dropdown-item" href="{{ route('tags.index') }}"><i class="ionicons ion-bookmark"></i>  Tags</a>
+                            </div>
+                        </li>
+                        <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-android-list"></i> Orders</a></li>
+                        <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-ios-people"></i> Clients</a></li>
                     </ul>
                     @endif
                 </nav>
