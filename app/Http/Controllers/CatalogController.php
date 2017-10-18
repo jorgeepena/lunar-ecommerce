@@ -8,6 +8,7 @@ use Stripe\Charge;
 use Session;
 use Auth;
 
+use Lunar\Wishlist;
 use Lunar\Store\Order;
 use Lunar\Store\Cart;
 use Lunar\Store\Product;

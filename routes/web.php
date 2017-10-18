@@ -78,12 +78,12 @@ Route::group(['middleware' => 'auth'], function(){
 		'as' => 'profile.wishlist',
 	]);
 
-	Route::get('/wishlist/add/{slug}', [
+	Route::get('/wishlist/add/{id}', [
 		'uses' => '\Lunar\Http\Controllers\WishlistController@add',
 		'as' => 'wishlist.add',
 	]);
 
-	Route::get('/wishlist/remove/{slug}', [
+	Route::get('/wishlist/remove/{id}', [
 		'uses' => '\Lunar\Http\Controllers\WishlistController@destroy',
 		'as' => 'wishlist.remove',
 	]);

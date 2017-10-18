@@ -2,6 +2,8 @@
 
 namespace Lunar;
 
+use Lunar\Wishlist;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -35,5 +37,18 @@ class User extends Authenticatable
     public function addresses()
     {
         return $this->hasMany('Lunar\Address');
+    }
+
+    public function isInWishlist($productId)
+    {
+        $wishList = Wishlist::where('user_id', '=', $this->attributes['id'])
+            ->where('product_id', '=', $productId)->get();
+
+
+        if (count($wishList) <= 0) {
+            return false;
+        }
+
+        return true;
     }
 }

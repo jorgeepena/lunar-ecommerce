@@ -21,6 +21,12 @@
 
 			<p><a href="{{ route('add-cart', ['id' => $product->id]) }}" class="btn btn-primary btn-big btn-block" role="button"><i class="fa fa-cart-plus"></i> Add to Cart</a> 
 
+			@if(isset(Auth::user()->id) && Auth::user()->isInWishlist($product->id))
+				<p><a class="btn btn-block btn-danger" href="{{ route('wishlist.remove', $product->id) }}"><i class="fa fa-heartbeat"></i> Remove from Wishlist</a></p>
+			@else
+            	<p><a class="btn btn-block btn-warning" href="{{ route('wishlist.add', $product->id) }}"><i class="fa fa-heart"></i> Add to Wishlist</a></p>
+			@endif
+
 
 			<hr>
 			<h6 class="text-uppercase">Product Details</h6>

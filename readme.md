@@ -13,6 +13,7 @@
 - Shopping Cart
 - Checkout Proccess w/ Payment with Stripe
 - Search Functionality
+- WishList Funcionality
 - Admin Login / Register
 - User Profile Views
 - User Login / Register
@@ -22,7 +23,7 @@
 ### Working On
 
 - Limit Order Summary on User Profile Overview
-- WishList Funcionality
+- Checkout Directly from Wishlist
 - SLUG for Products
 - Admin Dashboard
 

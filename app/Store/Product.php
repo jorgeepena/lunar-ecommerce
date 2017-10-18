@@ -17,9 +17,9 @@ class Product extends Model
     	'stock',
     ];
 
-    public static function getProductBySlug($slug)
+    public static function getProductById($id)
     {
         $model = new static;
-        return $model->where('slug', '=', $slug)->first();
+        return $model->where('id', '=', $id)->first();
     }
 }
