@@ -8,6 +8,7 @@ use Image;
 
 use Lunar\User;
 use Lunar\Address;
+use Lunar\Wishlist;
 
 use Illuminate\Http\Request;
 
@@ -24,8 +25,9 @@ class UserController extends Controller
         
         $user = Auth::user();
         $addresses = Address::where('user_id', $user->id)->get();
+        $wishlist = Wishlist::where('user_id', $user->id)->get();
 
-    	return view ('front.user-profile.index')->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
+    	return view ('front.user-profile.index')->with('orders', $orders)->with('user', $user)->with('addresses', $addresses)->with('wishlist', $wishlist);
 
     }
 

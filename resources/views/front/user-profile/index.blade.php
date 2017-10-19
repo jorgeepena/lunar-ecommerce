@@ -18,8 +18,8 @@
 		       		<div class="col-md-4">
 		       			<div class="card text-white bg-info mb-3">
 							<div class="card-body p-3">
-								<h6 class="card-title text-uppercase"><small>Seen Products</small></h6>
-								<h2 class="card-text">167</h2>
+								<h6 class="card-title text-uppercase"><small>On your Wishlist</small></h6>
+								<h2 class="card-text">{{ $wishlist->count() }}</h2>
 							</div>
 						</div>
 			       	</div>
