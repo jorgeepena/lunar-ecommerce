@@ -140,8 +140,18 @@ Route::get('/cart',[
 ]);
 
 Route::get('/substract/{id}',[
-	'uses' => 'CatalogController@removeOne',
+	'uses' => 'CatalogController@substractOne',
 	'as' => 'cart.substract',
+]);
+
+Route::get('/add/{id}',[
+	'uses' => 'CatalogController@addMore',
+	'as' => 'cart.add-more',
+]);
+
+Route::get('/delete/{id}',[
+	'uses' => 'CatalogController@deleteItem',
+	'as' => 'cart.delete',
 ]);
 
 /* Admin Dashboard */

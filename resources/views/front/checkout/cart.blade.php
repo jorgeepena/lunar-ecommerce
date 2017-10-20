@@ -21,8 +21,9 @@
 								</button>
 
 								<ul class="dropdown-menu">
-									<li><a href="{{ route( 'cart.substract', [ 'id' => $product['item']['id'] ] ) }}">Substract One</a></li>
-									<li><a href="#">Delete Item</a></li>
+									<li class="dropdown-item"><a href="{{ route( 'cart.substract', [ 'id' => $product['item']['id'] ] ) }}">Substract One</a></li>
+									<li class="dropdown-item"><a href="{{ route( 'cart.add-more', [ 'id' => $product['item']['id'] ] ) }}">Add One More</a></li>
+									<li class="dropdown-item"><a href="{{ route( 'cart.delete', [ 'id' => $product['item']['id'] ] ) }}">Delete Item</a></li>
 								</ul>
 								
 							</div>

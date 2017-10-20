@@ -79,12 +79,24 @@ class CatalogController extends Controller
         return redirect()->route('cart');
     }
 
+    public function addMore($id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+        $cart = new Cart($oldCart);
+        $cart->addMore($id);
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('cart');
+    }
+
     public function deleteItem($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
 
         $cart = new Cart($oldCart);
-        $cart->substractOne($id);
+        $cart->deleteItem($id);
 
         Session::put('cart', $cart);
 
