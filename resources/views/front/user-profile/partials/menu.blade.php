@@ -7,10 +7,10 @@
 			<li><a href="{{ route('profile.address.index') }}"><i class="fa fa-location-arrow"></i> Adressess</a></li>
 			<li><a href="{{ route('profile.wishlist') }}"><i class="fa fa-star"></i> My Wishlist</a></li>
 			<hr>
-			<li><a href="#"><i class="fa fa-pencil-square-o"></i> Edit Account</a></li>
-			<li><a href="#"><i class="fa fa-file-image-o"></i> Upload Image</a></li>
+			<li><a href="{{ route('profile.edit') }}"><i class="fa fa-pencil-square-o"></i> Edit Account</a></li>
+			<li><a href="{{ route('profile.image') }}"><i class="fa fa-file-image-o"></i> Upload Image</a></li>
 			<hr>
-			<li><a href="#"><i class="fa fa-lock"></i> Change Password</a></li>
+			<li><a href="{{ route('profile.edit') }}"><i class="fa fa-lock"></i> Change Password</a></li>
 			<li><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">

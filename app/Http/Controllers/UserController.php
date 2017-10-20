@@ -5,6 +5,7 @@ namespace Lunar\Http\Controllers;
 use Session;
 use Auth;
 use Image;
+use Storage;
 
 use Lunar\User;
 use Lunar\Address;
@@ -28,7 +29,72 @@ class UserController extends Controller
         $wishlist = Wishlist::where('user_id', $user->id)->get();
 
     	return view ('front.user-profile.index')->with('orders', $orders)->with('user', $user)->with('addresses', $addresses)->with('wishlist', $wishlist);
+    }
 
+    public function editProfile()
+    {
+        $user = Auth::user();
+
+        return view ('front.user-profile.edit')->with('user', $user);
+    }
+
+    public function updateProfile(Request $request, $id)
+    {
+        // Validar los datos
+        $this -> validate($request, array(
+
+        ));
+
+        // Guardar datos a la BD, usar el modelo con funcion find() para encontrar el elemento que estamos editabdo por medio del ID
+        $user = User::find($id);
+
+        $user->name = $request->input('name');
+        $user->password = bcrypt($request->input('password'));
+
+        $user->save();
+
+        // Mensaje de aviso server-side
+        Session::flash('success', 'Your account was succesfully updated.');
+
+        alert()->success('Your profile was saved succesfully.', 'Success!')->persistent('Ok, thanks!');
+
+        return redirect()->route('profile.index');
+    }
+
+    public function editImage()
+    {
+        $user = Auth::user();
+
+        return view ('front.user-profile.user-image')->with('user', $user);
+    }
+
+    public function updateImage(Request $request, $id)
+    {
+        $this -> validate($request, array(
+
+        ));
+
+        $user = User::find($id);
+        
+        $user->image = $request->user_imagen;
+
+        if ($request->hasFile('user_image')) {
+            $user_image = $request->file('user_image');
+            $filename = 'user_img' . time() . '.' . $user_image->getClientOriginalExtension();
+            $location = public_path('img/users/' . $filename);
+
+            Image::make($user_image)->resize(400,null, function($constraint){ $constraint->aspectRatio(); })->save($location);
+
+            $user->image = $filename;
+        }
+
+        $user->save();
+
+        Session::flash('success', 'Your profile picture was succesfully updated.');
+
+        alert()->success('Your profile picture was saved succesfully.', 'Success!')->persistent('Ok, thanks!');
+
+        return redirect()->route('profile.index');
     }
 
     public function orders()

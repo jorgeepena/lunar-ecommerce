@@ -46,6 +46,30 @@ Route::group(['middleware' => 'auth'], function(){
 		'as' => 'profile.index',
 	]);
 
+	/* Profile Info¨*/
+
+	Route::get('/profile/account-info', [
+		'uses' => '\Lunar\Http\Controllers\UserController@editProfile',
+		'as' => 'profile.edit',
+	]);
+
+	Route::put('/profile/account-info/{id}', [
+		'uses' => '\Lunar\Http\Controllers\UserController@updateProfile',
+		'as' => 'profile.update',
+	]);
+
+	/* Profile Image */
+
+	Route::get('/profile/account-image', [
+		'uses' => '\Lunar\Http\Controllers\UserController@editImage',
+		'as' => 'profile.image',
+	]);
+
+	Route::put('/profile/account-image/{id}', [
+		'uses' => '\Lunar\Http\Controllers\UserController@updateImage',
+		'as' => 'profile.image.update',
+	]);
+
 	/* Orders Summary */
 
 	Route::get('/profile/orders', [
@@ -148,6 +172,11 @@ Route::group(['middleware' => 'auth:admin'], function(){
 	Route::post('/admin/register-admin', [
 		'uses' => '\Lunar\Http\Controllers\Admin\AuthController@postRegister',
 		'as' => 'admin.register',
+	]);
+
+	Route::get('/admin/logout', [
+		'uses' => '\Lunar\Http\Controllers\Admin\AuthController@logout',
+		'as' => 'admin.logout',
 	]);
 	
 	Route::get('/admin', [
