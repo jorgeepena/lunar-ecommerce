@@ -159,7 +159,7 @@
                             </div>
                         </li>
                         <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-android-list"></i> Orders</a></li>
-                        <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-ios-people"></i> Clients</a></li>
+                        <li><a class="nav-link flex-sm-fill" href="{{ route('client.index') }}"><i class="ionicons ion-ios-people"></i> Clients</a></li>
 
                         <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-ios-people"></i> SEO</a></li>
 
@@ -167,8 +167,8 @@
                         <li class="dropdown">
                             <a href="#" id="dd-group1" class="flex-sm-fill nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ionicons ion-images"></i> Admins</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-group1">
-                            <a class="dropdown-item" href="{{ route('products.create') }}"><i class="ionicons ion-android-add"></i> Add New</a>
-                              <a class="dropdown-item" href="{{ route('products.index') }}"><i class="ionicons ion-ios-eye"></i> See All</a>
+                            <a class="dropdown-item" href="{{ route('admin.register') }}"><i class="ionicons ion-android-add"></i> Add New</a>
+                              <a class="dropdown-item" href="{{ route('admin.index') }}"><i class="ionicons ion-ios-eye"></i> See All</a>
                             </div>
                         </li>
 

@@ -13,6 +13,14 @@ use Lunar\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
+
+    public function adminList()
+    {
+        $admins = Admin::all();
+
+        return view('back.auth.index')->with('admins', $admins);
+    }
+
 	public function register()
     {
     	return view('back.auth.register');

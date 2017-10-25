@@ -174,6 +174,11 @@ Route::group(['middleware' => 'guest:admin'], function(){
 
 Route::group(['middleware' => 'auth:admin'], function(){
 
+	Route::get('/admin/admin-list', [
+		'uses' => '\Lunar\Http\Controllers\Admin\AuthController@adminList',
+		'as' => 'admin.index',
+	]);
+
 	Route::get('/admin/register-admin', [
 		'uses' => '\Lunar\Http\Controllers\Admin\AuthController@register',
 		'as' => 'admin.register',
@@ -194,8 +199,21 @@ Route::group(['middleware' => 'auth:admin'], function(){
 		'as' => 'admin.dashboard'
 	]);
 
+	Route::get('/admin/client-list', [
+		'uses' => '\Lunar\Http\Controllers\Admin\ClientController@index',
+		'as' => 'client.index'
+	]);
+
+	Route::get('/admin/client-list/{id}', [
+		'uses' => '\Lunar\Http\Controllers\Admin\ClientController@show',
+		'as' => 'client.show'
+	]);
+
 	Route::resource('/admin/products', 'Admin\ProductController');
 	Route::resource('/admin/categories', 'Admin\CategoryController');
 	Route::resource('/admin/tags', 'Admin\TagController');
+
+	Route::resource('/admin/clients', 'Admin\ClientController');
+	Route::resource('/admin/seo', 'Admin\SEOController');
 
 });
