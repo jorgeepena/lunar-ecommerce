@@ -10,50 +10,51 @@
 
 ### Working Modules
 
-* User Modules
-	* User Login / Register
-	* Search Functionality for Products, Categories, etc.
-	* WishList Funcionality
-	* User Profile Views
-		* Profile Overview w/ stats
-		* Order Summary
-		* Multiple User Addressess (CRUD)
-		* Edit Account
-		* Upload Profile Image
+- User Modules
+	- User Login / Register
+	- Search Functionality for Products, Categories, etc.
+	- WishList Funcionality
+	- User Profile Views
+		- Profile Overview w/ stats
+		- Order Summary
+		- Multiple User Addressess (CRUD)
+		- Wishlist View
+		- Edit Account
+		- Upload Profile Image
 
-* Store Module
-	* Product
-		* Catalog View
-		* Detail View
-	* Shopping Cart
-	* Checkout Proccess w/ Payment with Stripe
+- Store Module
+	- Product
+		- Catalog View
+		- Detail View
+	- Shopping Cart
+	- Checkout Proccess w/ Payment with Stripe
 
-* Admin Module
-	* Admin Login / Register
-	* Admin Dashboard
+- Admin Module
+	- Admin Login / Register
+	- Admin Dashboard
 
 ### Working On
 
-* Limit Order Summary on User Profile Overview
-* Checkout Directly from Wishlist
-* SLUG for Products
-* Product CRUD
-* Categories CRUD
-* Sales & Cupons
+- Limit Order Summary on User Profile Overview
+- Checkout Directly from Wishlist
+- SLUG for Products
+- Product CRUD
+- Categories CRUD
+- Sales & Cupons
 
 ### To-do List
 
-* Easy Package Installation for Laravel Applications
-* Multi-language (ES & US)
-* Personalized Installation / Config (Page Name, SEO Options)
-* Save Payment Methods on User Account (!!! Security concern here !!!)
-* Roles & Permissions
-* Theme Capability
-* Plugin Capability
-* Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
-* Related Products on Product Detail
-* Review & Comment Functionality
-* Review & Comment Moderation for Admin
+- Easy Package Installation for Laravel Applications
+- Multi-language (ES & US)
+- Personalized Installation / Config (Page Name, SEO Options)
+- Save Payment Methods on User Account (!!! Security concern here !!!)
+- Roles & Permissions
+- Theme Capability
+- Plugin Capability
+- Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
+- Related Products on Product Detail
+- Review & Comment Functionality
+- Review & Comment Moderation for Admin
 
 
 # Local Install
