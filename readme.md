@@ -10,36 +10,50 @@
 
 ### Working Modules
 
-- Shopping Cart
-- Checkout Proccess w/ Payment with Stripe
-- Search Functionality
-- WishList Funcionality
-- Admin Login / Register
-- User Profile Views
-- User Login / Register
-- User Order Summary on Profile
-- Multiple User Addressess (CRUD)
+* User Modules
+	* User Login / Register
+	* Search Functionality for Products, Categories, etc.
+	* WishList Funcionality
+	* User Profile Views
+		* Profile Overview w/ stats
+		* Order Summary
+		* Multiple User Addressess (CRUD)
+		* Edit Account
+		* Upload Profile Image
+
+* Store Module
+	* Product
+		* Catalog View
+		* Detail View
+	* Shopping Cart
+	* Checkout Proccess w/ Payment with Stripe
+
+* Admin Module
+	* Admin Login / Register
+	* Admin Dashboard
 
 ### Working On
 
-- Limit Order Summary on User Profile Overview
-- Checkout Directly from Wishlist
-- SLUG for Products
-- Admin Dashboard
+* Limit Order Summary on User Profile Overview
+* Checkout Directly from Wishlist
+* SLUG for Products
+* Product CRUD
+* Categories CRUD
+* Sales & Cupons
 
 ### To-do List
 
-- Easy Package Installation for Laravel Applications
-- Multi-language (ES & US)
-- Personalized Installation / Config (Page Name, SEO Options)
-- Save Payment Methods on User Account (!!! Security concern here !!!)
-- Roles & Permissions
-- Theme Capability
-- Plugin Capability
-- Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
-- Related Products on Product Detail
-- Review & Comment Functionality
-- Review & Comment Moderation for Admin
+* Easy Package Installation for Laravel Applications
+* Multi-language (ES & US)
+* Personalized Installation / Config (Page Name, SEO Options)
+* Save Payment Methods on User Account (!!! Security concern here !!!)
+* Roles & Permissions
+* Theme Capability
+* Plugin Capability
+* Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
+* Related Products on Product Detail
+* Review & Comment Functionality
+* Review & Comment Moderation for Admin
 
 
 # Local Install
