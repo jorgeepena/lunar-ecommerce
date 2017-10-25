@@ -6,8 +6,9 @@ namespace Lunar\Http\Controllers\Admin;
 use DB;
 use Auth;
 
+use Lunar\Store\Order;
 use Lunar\User;
-use Lunar\Product;
+use Lunar\Store\Product;
 
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;
@@ -19,15 +20,31 @@ class SearchController extends Controller
     	$query = $request->input('query');
 
     	$clients = User::where(DB::raw('name'), 'LIKE', "%{$query}%")
-    		->orWhere('user', 'LIKE', "%{$query}%")
-    		->orWhere('company', 'LIKE', "%{$query}%")
+    		->orWhere('email', 'LIKE', "%{$query}%")
     		->get();
 
     	$products = Product::where(DB::raw('name'), 'LIKE', "%{$query}%")
-    		->orWhere('description', 'LIKE', "%{$query}%")
     		->orWhere('sku', 'LIKE', "%{$query}%")
     		->get();
 
-        return view('search.query')->with('clients', $clients)->with('products', $products);
+        return view('back.search.query')->with('clients', $clients)->with('products', $products);
+    }
+
+    public function orderQuery(Request $request)
+    {   
+        $query = $request->input('query');
+
+        $orders = Order::where(DB::raw('id'), 'LIKE', "%{$query}%")
+            ->orWhere('payment_id', 'LIKE', "%{$query}%")
+            ->orWhere('created_at', 'LIKE', "%{$query}%")
+            ->orWhere('client_name', 'LIKE', "%{$query}%")
+            ->get();
+
+        $orders->transform(function($order, $key){
+           $order->cart = unserialize($order->cart);
+           return $order;
+        });
+
+        return view('back.search.orderquery')->with('orders', $orders);
     }
 }

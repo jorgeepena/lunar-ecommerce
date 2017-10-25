@@ -199,6 +199,11 @@ Route::group(['middleware' => 'auth:admin'], function(){
 		'as' => 'admin.dashboard'
 	]);
 
+	Route::get('/admin/search', [
+	    'uses' => '\Lunar\Http\Controllers\Admin\SearchController@query',
+	    'as' => 'admin.search.query',
+	]);
+
 	Route::get('/admin/client-list', [
 		'uses' => '\Lunar\Http\Controllers\Admin\ClientController@index',
 		'as' => 'client.index'
@@ -207,6 +212,21 @@ Route::group(['middleware' => 'auth:admin'], function(){
 	Route::get('/admin/client-list/{id}', [
 		'uses' => '\Lunar\Http\Controllers\Admin\ClientController@show',
 		'as' => 'client.show'
+	]);
+
+	Route::get('/admin/order-list', [
+		'uses' => '\Lunar\Http\Controllers\Admin\OrderController@index',
+		'as' => 'order.index'
+	]);
+
+	Route::get('/admin/order-list/{id}', [
+		'uses' => '\Lunar\Http\Controllers\Admin\OrderController@show',
+		'as' => 'order.show'
+	]);
+
+	Route::get('/admin/order-search', [
+	    'uses' => '\Lunar\Http\Controllers\Admin\SearchController@orderQuery',
+	    'as' => 'order.search.query',
 	]);
 
 	Route::resource('/admin/products', 'Admin\ProductController');

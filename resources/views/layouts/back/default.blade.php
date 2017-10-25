@@ -128,7 +128,7 @@
                             </a>
                         </li>
                         <li>
-                           <form class="form-inline" role="search" action="#">
+                           <form class="form-inline" role="search" action="{{ route('admin.search.query') }}">
                               <div class="input-group">
                                 <input type="search" name="query" class="form-control" placeholder="I'm searching for...">
                                 <span class="input-group-btn">
@@ -158,7 +158,7 @@
                               <a class="dropdown-item" href="{{ route('tags.index') }}"><i class="ionicons ion-bookmark"></i>  Tags</a>
                             </div>
                         </li>
-                        <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-android-list"></i> Orders</a></li>
+                        <li><a class="nav-link flex-sm-fill" href="{{ route('order.index') }}"><i class="ionicons ion-android-list"></i> Orders</a></li>
                         <li><a class="nav-link flex-sm-fill" href="{{ route('client.index') }}"><i class="ionicons ion-ios-people"></i> Clients</a></li>
 
                         <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-ios-people"></i> SEO</a></li>
