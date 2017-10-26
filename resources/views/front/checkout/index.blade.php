@@ -38,6 +38,104 @@
 				<hr>
 
 				<h5>Packaging Address</h5>
+				<p class="my-0">Select one of your previously saved addresses or register a new one.</p>
+
+				<div class="row mt-3">
+					<div class="col-md-12" id="accordion">
+					@foreach($addresses as $adds)
+			        <div class="card py-3 px-4">
+			            
+			            <div class="card-heading">
+			            	<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $adds->id }}">
+			                	<h6 class="card-title text-uppercase my-0"><small>{{ $adds->id }}. {{ $adds->name }}</small></h6>
+			                </a>
+			            </div>
+		            
+
+			            <div id="collapse{{ $adds->id }}" class="card-collapse collapse">
+			                <div class="card-body card-addresses">
+			                   	<!-- Datos de dirección para Formulario -->
+			                   	<div class="row">
+			                   		<div class="col-md-10">
+			                   			<input type="text" name="street" id="street" class="form-control" value="{{ $adds->street }}" disabled readonly="">
+			                   		</div>
+			                   		<div class="col-md-2">
+			                   			<input type="text" name="street_num" id="street_num" class="form-control" value="{{ $adds->street_num }}" disabled readonly="">
+			                   		</div>
+
+			                   	</div>
+
+			                   	<div class="row mt-4">
+			                   		<div class="col-md-4">
+			                   			<input type="text" name="postal_code" id="postal_code" class="form-control" value="{{ $adds->postal_code }}" disabled readonly="">
+			                   		</div>
+			                   		<div class="col-md-4">
+			                   			<input type="text" name="city" id="city" class="form-control" value="{{ $adds->city }}" disabled readonly="">
+			                   		</div>
+			                   		<div class="col-md-4">
+			                   			<input type="text" name="state" id="state" class="form-control" value="{{ $adds->state }}" disabled readonly="">
+			                   		</div>
+			                   	</div>
+			                </div>
+			            </div>
+			        </div>
+
+			        @endforeach
+
+			        <div class="card py-3 px-4">
+			            <div class="card-heading">
+			            	<a data-toggle="collapse" data-parent="#accordion" href="#collapseNuevo">
+				                <h5 class="card-title text-uppercase my-0"><small>Register a New Address</small></h5>
+			                </a>
+
+			                <p class="my-0"><small>This address will be saved on your profile for future use.</small></p>
+			            </div>
+			            
+
+			            <div id="collapseNuevo" class="card-collapse collapse in">
+			                <div class="card-body new-direction">
+			                   	<div class="row">
+									<div class="col-md-10">
+										<div class="form-group">
+											<label for="street">Street</label>
+											<input type="text" name="street" id="street" class="form-control" required="">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="street_num">Street Num</label>
+											<input type="text" name="street_num" id="street_num" class="form-control" required="">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="postal_code">Postal Code</label>
+											<input type="text" name="postal_code" id="postal_code" class="form-control" required="">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="city">City</label>
+											<input type="text" name="city" id="city" class="form-control" required="">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="state">State</label>
+											<input type="text" name="state" id="state" class="form-control" required="">
+										</div>
+									</div>
+								</div>	
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+				</div>
+
+				<!--
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
@@ -78,6 +176,7 @@
 						</div>
 					</div>
 				</div>
+				-->
 				<hr>
 
 				<h3>Card Details</h3>
@@ -128,6 +227,24 @@
 @endsection
 
 @section('scripts')
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.card-heading').on('click', function(){
+			$('.card').removeClass('bg-info');
+			$('.card-addresses input').prop('disabled', true);
+			$('.new-direction').find('input').prop('disabled', true);
+			
+
+			if ($('.in')) {
+				$(this).parent().find('input').prop('disabled', false);
+				$(this).find('.card').addClass('bg-info');
+			}
+		})
+
+	});
+</script>
+
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 <script>
