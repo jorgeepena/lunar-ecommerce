@@ -24,6 +24,7 @@ class CreateUserAddressesTable extends Migration
             $table->string('street_num');
             $table->string('postal_code');
             $table->string('city');
+            $table->string('country');
             $table->string('state');
             $table->string('phone');
 

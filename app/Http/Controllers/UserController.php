@@ -11,6 +11,8 @@ use Lunar\User;
 use Lunar\Address;
 use Lunar\Wishlist;
 
+use Lunar\Store\Country;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -123,7 +125,9 @@ class UserController extends Controller
 
     public function createAddress()
     {
-        return view ('front.user-profile.addresses.create');
+        $countries = Country::all();
+
+        return view ('front.user-profile.addresses.create')->with('countries', $countries);
     }
 
     public function storeAddress(Request $request)
@@ -140,6 +144,7 @@ class UserController extends Controller
         $address->street_num = $request->street_num;
         $address->postal_code = $request->postal_code;
         $address->city = $request->city;
+        $address->country = $request->country;
         $address->state = $request->state;
         $address->phone = $request->phone;
 
@@ -167,7 +172,7 @@ class UserController extends Controller
         //$user -> save();
 
         alert()->success('Your profile was saved succesfully.', 'Success!')->persistent('Ok, thanks!');
-        return redirect()->back();
+        return redirect()->route('profile.address.index');
     }
 
 

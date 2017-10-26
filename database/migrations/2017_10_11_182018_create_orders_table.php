@@ -20,8 +20,8 @@ class CreateOrdersTable extends Migration
             $table->text('cart');
             
             /* Address */
-            $table->string('address_1');
-            $table->string('address_2');
+            $table->string('street');
+            $table->string('street_num');
             $table->string('country');
             $table->string('state');
             $table->string('city');

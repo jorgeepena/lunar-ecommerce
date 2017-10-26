@@ -63,8 +63,10 @@
 			                   			<input type="text" name="street_num" id="street_num" class="form-control" value="{{ $adds->street_num }}" disabled readonly="">
 			                   		</div>
 
+			                   		<div class="col-md-12 mt-4">
+			                   			<input type="text" name="country" id="country" class="form-control" value="{{ $adds->country }}" disabled readonly="">
+			                   		</div>
 			                   	</div>
-
 			                   	<div class="row mt-4">
 			                   		<div class="col-md-4">
 			                   			<input type="text" name="postal_code" id="postal_code" class="form-control" value="{{ $adds->postal_code }}" disabled readonly="">
@@ -109,7 +111,20 @@
 									</div>
 								</div>
 
+
 								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="country">Country</label>
+											<select class="form-control" id="country" name="country">
+				                                <option value="0">Select your country</option>
+					            				@foreach($countries as $country)
+				                                    <option value="{{ $country->name }}">{{ $country->code }} | {{ $country->name }}</option>
+				                                @endforeach
+					            			</select>
+										</div>	
+									</div>
+
 									<div class="col-md-4">
 										<div class="form-group">
 											<label for="postal_code">Postal Code</label>

@@ -12,6 +12,7 @@ use Lunar\Wishlist;
 use Lunar\Store\Order;
 use Lunar\Store\Cart;
 use Lunar\Store\Product;
+use Lunar\Store\Country;
 use Lunar\Address;
 
 use Illuminate\Http\Request;
@@ -136,7 +137,9 @@ class CatalogController extends Controller
 
             $addresses = Address::where('user_id', Auth::user()->id)->get();
 
-           return view('front.checkout.index')->with('total', $total)->with('orders', $orders)->with('user', $user)->with('addresses', $addresses);
+            $countries = Country::all();
+
+           return view('front.checkout.index')->with('total', $total)->with('orders', $orders)->with('user', $user)->with('addresses', $addresses)->with('countries', $countries);
         }
 
     	return view('front.checkout.index')->with('total', $total);
@@ -166,12 +169,13 @@ class CatalogController extends Controller
     		$order = new Order();
 
     		$order->cart = serialize($cart);
-    		$order->address_1 = $request->input('address_1');
-    		$order->address_2 = $request->input('address_2');
+    		$order->street = $request->input('street');
+    		$order->street_num = $request->input('street_num');
     		$order->country = $request->input('country');
     		$order->state = $request->input('state');
     		$order->postal_code = $request->input('postal_code');
     		$order->city = $request->input('city');
+            $order->country = $request->input('country');
     		$order->phone = $request->input('phone');
 
     		$order->client_name = $request->input('client_name');

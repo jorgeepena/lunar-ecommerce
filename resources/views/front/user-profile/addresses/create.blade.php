@@ -66,7 +66,12 @@
 		      			<div class="col-md-6">
 		      				<div class="form-group">
 								<label for="country">Country</label>
-								<input type="text" name="country" id="country" class="form-control">
+								<select class="form-control" id="country" name="country">
+	                                <option value="0">Select your country</option>
+		            				@foreach($countries as $country)
+	                                    <option value="{{ $country->name }}">{{ $country->code }} | {{ $country->name }}</option>
+	                                @endforeach
+		            			</select>
 							</div>
 		      			</div>
 

@@ -48,6 +48,7 @@
 
             				<h6 class="text-uppercase"><small><strong>Location</strong></small></h6>
             				<ul>
+            					<li>Country: {{ $address->country }}</li>
 								<li>City: {{ $address->city }}</li>
 								<li>State: {{ $address->state }}</li>
 								<li>CP: {{ $address->postal_code }}</li>
