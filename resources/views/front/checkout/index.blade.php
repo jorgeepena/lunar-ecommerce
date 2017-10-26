@@ -210,13 +210,37 @@
 						</div>
 					</div>
 				</div>
-
 				{{ csrf_field() }}
 			</div>
 
 			<div class="col-md-4">
 				<div class="card p-4">
-					<h4>Total: $ {{ $total }}</h4>
+					<h6 class="text-uppercase"><small>¿Do you have a Coupon?</small></h6>
+					<form role="search" action="#">
+						<div class="form-group mt-3 mb-5">
+							<div class="input-group">
+								<input class="form-control" name="query" type="search" placeholder="Code" aria-label="Code">
+								<button class="input-group-addon btn btn-outline-success" type="submit">Apply</button>
+							</div>
+						</div>
+	                </form>
+
+	                <dl class="row mb-1">
+                        <dd class="col-md-8"><strong>Subtotal</strong></td>
+                        <dd class="col-md-4 text-right">$ {{ $total }}</td>
+                    </dl>
+
+                    <dl class="row mb-0">
+                        <dd class="col-md-8"><strong>Coupon Discount:</strong></td>
+                        <dd class="col-md-4 text-right">$ 150</td>
+                    </dl>
+
+                    <hr>
+
+                    <dl class="row">
+                        <dd class="col-md-8"><h4><strong>Total</strong></h4></td>
+                        <dd class="col-md-4 text-right"><h4>$ {{ $total - 150 }}</h4></td>
+                    </dl> 
 				</div>
 				<hr>
 				<button type="submit" class="btn btn-success btn-lg btn-block">Checkout</button>
