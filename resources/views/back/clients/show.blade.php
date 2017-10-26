@@ -54,15 +54,21 @@
 						<h2 class="card-text">{{ $wishlist->count() }}</h2>
 					</div>
 				</div>
+				
 				<div class="dropdown">
                     <a href="#" id="dd-group1" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><small>See Items in Wishlist</small></a>
 
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-group1">
+                    	@if($wishlist->count())
                     	@foreach($wishlist as $ws)
                     	<li class="dropdown-item">{{ $ws->product->name }}</li>
                     	@endforeach
+                    	@else
+                    	<li class="dropdown-item">No item added</li>
+                		@endif
                     </ul>
                 </div>
+                 
 			</div>
 			<div class="col col-md-4">
 				<div class="card text-white card-warning mb-3">
@@ -118,7 +124,7 @@
 		       	@else
 		       	<div class="text-center my-5">
 		       		<h4 class="mb-0">{{ $client->name }} doesn´t have recent purchases.</h4>
-		       		<p>Visit this client in the future to see if he have bought anaything!</p>
+		       		<p>Visit this client in the future to see if he have bought anything!</p>
 		       	</div>
 		       	@endif
 			</div>

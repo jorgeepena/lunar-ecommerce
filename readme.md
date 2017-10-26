@@ -10,7 +10,7 @@
 
 ### Working Modules
 
-- User Modules
+- [x] User Modules
 	- User Login / Register
 	- Search Functionality for Products, Categories, etc.
 	- WishList Funcionality
@@ -22,25 +22,25 @@
 		- Edit Account
 		- Upload Profile Image
 
-- Store Module
+- [x] Store Module
 	- Product
 		- Catalog View
 		- Detail View
 	- Shopping Cart
 	- Checkout Proccess w/ Payment with Stripe
 
-- Admin Module
+- [x] Admin Module
 	- Admin Login / Register
 	- Admin Dashboard
 
 ### Working On
 
-- Limit Order Summary on User Profile Overview
-- Checkout Directly from Wishlist
-- SLUG for Products
-- Product CRUD
-- Categories CRUD
-- Sales & Cupons
+- [ ] Limit Order Summary on User Profile Overview
+- [ ] Checkout Directly from Wishlist
+- [ ] SLUG for Products
+- [ ] Product CRUD
+- [ ] Categories CRUD
+- [ ] Sales & Cupons
 
 ### To-do List
 
@@ -56,6 +56,7 @@
 - Review & Comment Functionality
 - Review & Comment Moderation for Admin
 
+- - - -
 
 # Local Install
 

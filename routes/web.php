@@ -199,6 +199,11 @@ Route::group(['middleware' => 'auth:admin'], function(){
 		'as' => 'admin.dashboard'
 	]);
 
+	Route::get('/admin/variants', [
+		'uses' => '\Lunar\Http\Controllers\Admin\DashboardController@variants',
+		'as' => 'admin.variants'
+	]);
+
 	Route::get('/admin/search', [
 	    'uses' => '\Lunar\Http\Controllers\Admin\SearchController@query',
 	    'as' => 'admin.search.query',
