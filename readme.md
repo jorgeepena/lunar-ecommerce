@@ -32,13 +32,14 @@
 - [x] Admin Module
 	- Admin Login / Register
 	- Admin Dashboard
+	- Product CRUD
+		
 
 ### Working On
 
 - [ ] Limit Order Summary on User Profile Overview
 - [ ] Checkout Directly from Wishlist
 - [ ] SLUG for Products
-- [ ] Product CRUD
 - [ ] Categories CRUD
 - [ ] Sales & Cupons
 
