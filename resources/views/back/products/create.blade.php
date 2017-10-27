@@ -164,13 +164,11 @@
 
 	       	<div class="form-group">
     			<label>Category</label>
-    			<select class="form-control" id="categoria_id" name="categoria_id">
+    			<select class="form-control" id="category_id" name="category_id">
                     <option value="0">Select a category</option>
-                    <option value="1">Category 1</option>
-                    <option value="2">Category 2</option>
-                    <option value="3">Category 3</option>
-                    <option value="4">Category 4</option>
-                    <option value="5">Category 5</option>
+                    @foreach($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    @endforeach
     			</select>
     		</div>
 			<hr>

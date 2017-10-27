@@ -24,6 +24,13 @@
 	<div class="col-md-4">
 		<p class="badge badge-primary">Product ID: {{ $product->id }}</p>
 		<img class="img-fluid" src="{{ asset('img/products/' . $product->image ) }}">
+
+		@if($product->category_id == NULL)
+
+		@else
+		<p class="text-uppercase my-3"><small>Belongs to category: <strong>{{ $product->category->name }}</strong></small></p>
+		@endif
+
 	</div>
 	<div class="col-md-8">
 		

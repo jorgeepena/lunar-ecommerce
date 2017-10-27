@@ -8,8 +8,10 @@ use Purifier;
 use Storage;
 use Image;
 
+
 use Lunar\Admin;
 use Lunar\Store\Product;
+use Lunar\Store\Category;
 
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;
@@ -24,7 +26,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(10);
-
+        
         return view('back.products.index')->with('products', $products);
     }
 
@@ -35,7 +37,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('back.products.create');
+        $categories = Category::all();
+
+        return view('back.products.create')->with('categories', $categories);
     }
 
     /**
@@ -140,7 +144,6 @@ class ProductController extends Controller
 
         alert()->success('Product saved succesfully on the database.', '¡Success!')->autoclose(1000);
         // Enviar a vista
-
         return redirect()->route('products.show', $product->id);
     }
 
@@ -190,6 +193,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->delete();
+
+        Session::flash('success', 'The product was succesfully deleted.');
+
+        alert()->success('Product deleted succesfully from the database.', '¡Success!')->autoclose(1000);
+
+        return redirect()->route('products.index');
     }
 }

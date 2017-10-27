@@ -33,13 +33,14 @@
 	- Admin Login / Register
 	- Admin Dashboard
 	- Product CRUD
+	- Categories CRUD
 
 ### Working On
 
 - [ ] Limit Order Summary on User Profile Overview
 - [ ] Checkout Directly from Wishlist
 - [ ] SLUG for Products
-- [ ] Categories CRUD
+- [ ] TAGs CRUD
 - [ ] Sales & Cupons
 
 ### To-do List

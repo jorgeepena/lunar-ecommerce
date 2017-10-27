@@ -4,11 +4,12 @@ namespace Lunar\Http\Controllers\Admin;
 
 use Session;
 use Auth;
+use Carbon\Carbon;
 
 use Lunar\Admin;
 use Lunar\User;
-use Lunar\Product;
-use Lunar\Order;
+use Lunar\Store\Product;
+use Lunar\Store\Order;
 
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;
@@ -17,7 +18,14 @@ class DashboardController extends Controller
 {
     public function dashboard()
 	{
-		return view('back.dashboard');
+
+        $clients = User::all()->count();
+        $products = Product::all()->count();
+
+        $new_orders = Order::where('created_at', '>=', Carbon::now()->subWeek())->count();
+
+
+		return view('back.dashboard')->with('clients', $clients)->with('products', $products)->with('new_orders', $new_orders);
 	}
 
     public function profile()

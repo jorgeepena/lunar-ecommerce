@@ -26,6 +26,7 @@
 		</div>
 	</div>
 </div>
+
 <div class="row">
 	<div class="col col-md-3">
 		<div class="card text-white card-primary mb-3">
@@ -40,8 +41,8 @@
 	<div class="col col-md-3">
 		<div class="card text-white card-warning mb-3">
 			<div class="card-body p-3">
-				<h6 class="card-title text-uppercase"><small>Orders Today</small></h6>
-				<h2 class="card-text">120</h2>
+				<h6 class="card-title text-uppercase"><small>Orders this Week</small></h6>
+				<h2 class="card-text">{{ $new_orders }}</h2>
 			</div>
 		</div>
 	</div>
@@ -49,7 +50,7 @@
 		<div class="card text-white card-info mb-3">
 			<div class="card-body p-3">
 				<h6 class="card-title text-uppercase"><small>Total Clients</small></h6>
-				<h2 class="card-text">120</h2>
+				<h2 class="card-text">{{ $clients }}</h2>
 			</div>
 		</div>
 	</div>
@@ -57,7 +58,7 @@
 		<div class="card text-white card-success  mb-3">
 			<div class="card-body p-3">
 				<h6 class="card-title text-uppercase"><small>Products</small></h6>
-				<h2 class="card-text">120</h2>
+				<h2 class="card-text">{{ $products }}</h2>
 			</div>
 		</div>
 	</div>

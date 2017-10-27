@@ -5,6 +5,14 @@ namespace Lunar\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;
 
+use Session;
+use Auth;
+use Purifier;
+use Storage;
+use Image;
+
+use Lunar\Store\Category;
+
 class CategoryController extends Controller
 {
     /**
@@ -14,7 +22,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::paginate(10);
+
+        return view('back.categories.index')->with('categories', $categories);
     }
 
     /**
@@ -24,7 +34,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +45,25 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validar
+        $this -> validate($request, array(
+            'name' => 'required|max:255',
+        ));
+
+        // Guardar datos en la base de datos
+        $category = new Category;
+
+        $category->name = $request->name;
+
+        $category->save();
+
+        // Mensaje de session
+        Session::flash('success', 'Your category was saved correctly in the database.');
+
+        alert()->success('Category saved succesfully on the database.', '¡Success!')->autoclose(1000);
+        // Enviar a vista
+
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +108,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->delete();
+
+        Session::flash('success', 'The category was succesfully deleted.');
+
+        alert()->success('Category deleted succesfully from the database.', '¡Success!')->autoclose(1000);
+
+        return redirect()->back();
     }
 }

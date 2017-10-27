@@ -47,7 +47,7 @@
             <tr>
               <th scope="row">{{ $product->id }}</th>
               <th><img style="width: 50px;" src="{{ $product->image }}"></th>
-              <td><strong>{{ $product->name }}</strong> <br> <p>{{ $product->description }}</p></td>
+              <td><strong>{{ $product->name }}</strong> <br> <p>{!! $product->description !!}</p></td>
               <td>{{ $product->sku }}</td>
               <td>${{ $product->price }}</td>
               <td>{{ $product->stock }}</td>
@@ -55,6 +55,12 @@
                 <div class="btn-group" role="group" aria-label="Acciones">
                   <a href="{{ route('products.edit', $product->id) }}" class="btn btn-secondary"><i class="ionicons ion-edit"></i></a>
                   <a href="{{ route('products.show', $product->id) }}" class="btn btn-secondary"><i class="ionicons ion-ios-eye"></i></a>
+
+                  <form method="POST" action="{{ route('products.destroy', $product->id) }}">
+                      <button type="submit" class="btn btn-danger"><i class="icon ion-ios-trash" aria-hidden="true"></i></button>
+                      {{ csrf_field() }}
+                      {{ method_field('DELETE') }}
+                  </form>
                 </div>
               </td>
             </tr>

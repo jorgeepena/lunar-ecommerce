@@ -17,6 +17,12 @@ class Product extends Model
     	'stock',
     ];
 
+    public function category()
+    {
+        return $this->belongsTo('Lunar\Store\Category');
+    }
+
+
     public static function getProductById($id)
     {
         $model = new static;
