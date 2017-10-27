@@ -24,7 +24,7 @@
 
                 <p><a href="{{ route('add-cart', ['id' => $product->id]) }}" class="btn btn-primary" role="button"><i class="fa fa-cart-plus"></i> Add to Cart</a> 
 
-                <a href="{{ route('product.detail', $product->id) }}" class="btn btn-success" role="button"><i class="fa fa-plus-circle"></i> View Detail</a></p>
+                <a href="{{ route('product.detail', $product->slug) }}" class="btn btn-success" role="button"><i class="fa fa-plus-circle"></i> View Detail</a></p>
             </div>
         </div>
         @endforeach

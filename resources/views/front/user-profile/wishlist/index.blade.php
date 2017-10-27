@@ -47,8 +47,9 @@
 		       @if($wishlist->count())
 		       		<div class="card-columns">
 		       			@foreach($wishlist as $ws)
-		       			<a href="{{ route('product.detail', $ws->product->id) }}" class="card">
-		       				<img class="card-img-top" src="{{ $ws->product->image }}" alt="Card image cap">
+		       			<a href="{{ route('product.detail', $ws->product->slug) }}" class="card">
+		       				<img class="card-img-top" src="{{ asset('img/products/' . $ws->product->image ) }}" alt="{{ $ws->product->name }}">
+
 		       				<div class="card-body">
 		       					<h4 class="card-title">{{ $ws->product->name }}</h4>
 		       					<p class="card-text"><strong>$ {{ $ws->product->price }}</strong></p>

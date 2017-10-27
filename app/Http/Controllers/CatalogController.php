@@ -33,9 +33,9 @@ class CatalogController extends Controller
     	return view('front.catalog.great-detail')->with('products', $products);
     }
 
-    public function detail($id){
+    public function detail($slug){
 
-        $product = Product::find($id);
+        $product = Product::where('slug', '=', $slug)->first();
 
     	return view('front.catalog.detail')->with('product', $product);
     }

@@ -40,23 +40,21 @@
 ### Working On
 
 - [ ] Checkout Directly from Wishlist
-- [ ] SLUG for Products
-- [ ] TAGs CRUD
 - [ ] Sales & Cupons
+- [ ] Multi-language (ES & US)
+- [ ] Related Products on Product Detail
+- [ ] Review & Comment Functionality
+- [ ] Review & Comment Moderation for Admin
 
 ### To-do List
 
 - Easy Package Installation for Laravel Applications
-- Multi-language (ES & US)
 - Personalized Installation / Config (Page Name, SEO Options)
 - Save Payment Methods on User Account (!!! Security concern here !!!)
 - Roles & Permissions
 - Theme Capability
 - Plugin Capability
 - Multiple Payment Gateways (Stripe for US / OpenPay for Latin America)
-- Related Products on Product Detail
-- Review & Comment Functionality
-- Review & Comment Moderation for Admin
 
 - - - -
 

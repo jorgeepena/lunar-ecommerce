@@ -35,6 +35,10 @@
         	<textarea class="form-control" id="description" name="description" rows="5"></textarea>
         </div>
 
+        <div class="form-group">
+            <label for="slug">Slug</label>
+            <input type="text" class="form-control" id="slug" name="slug" required="" minlength="5" maxlength="255">
+        </div>
 
        	<h6 class="text-uppercase mt-4"><small>Images</small></h6>
        	<hr>

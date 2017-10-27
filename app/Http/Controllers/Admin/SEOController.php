@@ -74,7 +74,33 @@ class SEOController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validar
+        $this -> validate($request, array(
+
+        ));
+
+        // Guardar datos en la base de datos
+        $seo = SEO::find($id);
+
+        $seo->titulo = $request->input('titulo');
+        $seo->resumen = $request->input('resumen');
+        $seo->cuerpo = Purifier::clean($request->input('cuerpo'));
+
+        $seo->destacado = $request->input('destacado');
+
+        $seo->autor_id = $request->input('autor_id');
+        $seo->categoria_id = $request->input('categoria_id');
+
+        $seo->slug = $request->input('slug');
+
+        $seo->save();
+
+        // Mensaje de aviso server-side
+        Session::flash('exito', 'Your SEO Configuration was succesfully saved.');
+
+        // Redireccionar con información de exito a publicacion.show
+
+        return redirect()->back();
     }
 
     /**

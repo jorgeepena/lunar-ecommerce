@@ -18,7 +18,6 @@
 	<hr>
 </div>
 
-
 <div class="row">
     <div class="col">
       <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.register') }}">

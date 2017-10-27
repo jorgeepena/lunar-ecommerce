@@ -21,11 +21,15 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->integer('price');
             $table->string('image')->nullable();
+            //$table->string('slug')->unique();
 
             /* Inventory Info */
             $table->string('sku')->nullable();
             $table->string('stock')->nullable();
             $table->string('production_cost')->nullable();
+
+
+
             $table->integer('category_id')->nullable()->unsigned();
 
             /* Aditional Info */

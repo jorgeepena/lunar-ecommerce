@@ -59,12 +59,14 @@ class ProductController extends Controller
             'image' => 'sometimes|image',
             'stock' => 'nullable',
             'sku' => 'nullable',
+            'slug' => 'required|min:6|max:255',
         ));
 
         // Guardar datos en la base de datos
         $product = new Product;
 
         $product->name = $request->name;
+        $product->slug = $request->slug;
         $product->description = Purifier::clean($request->description);
         $product->price = $request->price;
         $product->production_cost = $request->production_cost;
