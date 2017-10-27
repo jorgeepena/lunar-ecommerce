@@ -16,6 +16,7 @@
 	- WishList Funcionality
 	- User Profile Views
 		- Profile Overview w/ stats
+			- Order Summary (Limit of 5)
 		- Order Summary
 		- Multiple User Addressess (CRUD)
 		- Wishlist View
@@ -30,6 +31,7 @@
 	- Checkout Proccess w/ Payment with Stripe
 
 - [x] Admin Module
+	- SEO & Page Configuration
 	- Admin Login / Register
 	- Admin Dashboard
 	- Product CRUD
@@ -37,7 +39,6 @@
 
 ### Working On
 
-- [ ] Limit Order Summary on User Profile Overview
 - [ ] Checkout Directly from Wishlist
 - [ ] SLUG for Products
 - [ ] TAGs CRUD

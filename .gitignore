@@ -11,4 +11,6 @@ npm-debug.log
 yarn-error.log
 .env
 /public/img/users/*.jpg
+/public/img/users/*.png
 /public/img/products/*.png
+/public/img/products/*.jpg

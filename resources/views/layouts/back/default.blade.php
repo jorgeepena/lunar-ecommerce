@@ -161,7 +161,7 @@
                         <li><a class="nav-link flex-sm-fill" href="{{ route('order.index') }}"><i class="ionicons ion-android-list"></i> Orders</a></li>
                         <li><a class="nav-link flex-sm-fill" href="{{ route('client.index') }}"><i class="ionicons ion-ios-people"></i> Clients</a></li>
 
-                        <li><a class="nav-link flex-sm-fill" href="#"><i class="ionicons ion-ios-people"></i> SEO</a></li>
+                        <li><a class="nav-link flex-sm-fill" href="{{ route('seo.index') }}"><i class="ionicons ion-ios-people"></i> SEO</a></li>
 
                         <li><hr></li>
                         <li class="dropdown">

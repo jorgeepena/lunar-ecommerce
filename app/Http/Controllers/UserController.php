@@ -11,6 +11,7 @@ use Lunar\User;
 use Lunar\Address;
 use Lunar\Wishlist;
 
+use Lunar\Store\Order;
 use Lunar\Store\Country;
 
 use Illuminate\Http\Request;
@@ -19,14 +20,18 @@ class UserController extends Controller
 {
     public function profile()
     {
-    	$orders = Auth::user()->orders;
+    	//$orders = Auth::user()->orders;
     	
+        $user = Auth::user();
+
+        $orders = Order::where('user_id', $user->id)->paginate(3);
+
         $orders->transform(function($order, $key){
             $order->cart = unserialize($order->cart);
             return $order;
         });
         
-        $user = Auth::user();
+        
         $addresses = Address::where('user_id', $user->id)->get();
         $wishlist = Wishlist::where('user_id', $user->id)->get();
 

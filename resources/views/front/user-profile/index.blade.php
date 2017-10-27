@@ -67,6 +67,14 @@
 		       			<span class="badge badge-secondary pull-right" style="margin-top: 3px;">Date of Purchase: {{ $order->created_at }}</span>
 		       		</div>
 		       	</div>
+
+		       	<hr>
+		       	
+		       	<div class="row">
+		       		<div class="col text-center">
+		       			<a class="btn btn-secondary mt-3" href="{{ route('profile.orders') }}">See all Orders</a>
+		       		</div>
+		       	</div>
 		       	@endforeach
 		       	@else
 		       	<div class="text-center my-5">
