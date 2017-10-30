@@ -13,6 +13,7 @@ use Lunar\Wishlist;
 
 use Lunar\Store\Order;
 use Lunar\Store\Country;
+use Lunar\Store\Review;
 
 use Illuminate\Http\Request;
 
@@ -179,8 +180,5 @@ class UserController extends Controller
         alert()->success('Your profile was saved succesfully.', 'Success!')->persistent('Ok, thanks!');
         return redirect()->route('profile.address.index');
     }
-
-
-
 
 }

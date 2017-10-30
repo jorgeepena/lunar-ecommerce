@@ -156,6 +156,9 @@
 
                               <a class="dropdown-item" href="{{ route('categories.index') }}"><i class="ionicons ion-grid"></i> Categories</a>
                               <a class="dropdown-item" href="{{ route('tags.index') }}"><i class="ionicons ion-bookmark"></i>  Tags</a>
+
+                              <hr>
+                              <a class="dropdown-item" href="{{ route('review.index') }}"><i class="ionicons ion-bookmark"></i>  Reviews</a>
                             </div>
                         </li>
                         <li><a class="nav-link flex-sm-fill" href="{{ route('order.index') }}"><i class="ionicons ion-android-list"></i> Orders</a></li>

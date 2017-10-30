@@ -27,6 +27,7 @@
 	- Product
 		- Catalog View
 		- Detail View
+			- Review & Comment Functionality
 	- Shopping Cart
 	- Checkout Proccess w/ Payment with Stripe
 
@@ -35,6 +36,7 @@
 	- Admin Login / Register
 	- Admin Dashboard
 	- Product CRUD
+		- Review & Comment Moderation
 	- Categories CRUD
 
 ### Working On
@@ -43,8 +45,6 @@
 - [ ] Sales & Cupons
 - [ ] Multi-language (ES & US)
 - [ ] Related Products on Product Detail
-- [ ] Review & Comment Functionality
-- [ ] Review & Comment Moderation for Admin
 
 ### To-do List
 

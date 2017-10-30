@@ -22,10 +22,17 @@ class Product extends Model
         return $this->belongsTo('Lunar\Store\Category');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany('Lunar\Store\Review', 'product_id');
+    }
+
 
     public static function getProductById($id)
     {
         $model = new static;
         return $model->where('id', '=', $id)->first();
     }
+
+
 }

@@ -84,7 +84,64 @@
 					</dl> 
 				</div>
 				<div class="tab-pane fade p-4" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
-					HERE GOES REVIEWS FUNCTIONALITY
+
+					<h6 class="text-uppercase"><small>Liked the product?</small></h6>
+					<h5>Leave your review!</h5>
+					<hr>
+					<form action="{{ route('review.store', $product->id) }}" method="POST">
+						{{ csrf_field() }}
+
+						<div class="form-group">
+							<textarea id="review" name="review" rows="4" class="form-control" placeholder="Your review."></textarea>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									@guest
+	                                <input type="text" name="name" id="name" class="form-control" placeholder="Your name" value="">
+	                                @else
+	                                <input type="text" name="name" id="name" class="form-control" placeholder="Your name" value="{{ Auth::user()->name }}" readonly="">
+	                                @endguest
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									@guest
+									<input type="email" name="email" id="email" class="form-control" placeholder="Your e-mail" value="">
+									@else
+									<input type="email" name="email" id="email" class="form-control" placeholder="Your e-mail" value="{{ Auth::user()->email }}" readonly="">
+									@endguest
+									
+								</div>
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-success btn-block">Send Review</button>	
+					</form>	
+
+					<hr>
+
+
+					@if($product->reviews->count())
+					@foreach($product->reviews as $review)
+						@if($review->approved == true)
+							<div class="media">
+								<img class="mr-3 rounded-circle" src="{{ 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($review->email))) . '?wavatar' }}" alt="{{ $review->name }}">
+								<div class="media-body">
+									<h5 class="mt-0 mb-0">{{ $review->name }}</h5>
+									<p class="mb-2"><small><i>Posted: {{ date( 'd, m, Y' ,strtotime($review->created_at)) }}</i></small></p>
+									<p>{{ $review->review }}</p>
+								</div>
+							</div>
+
+							<hr>
+						@endif
+					@endforeach
+					@else
+						<h3>There are no reviews yet. Be the first!</h3>
+					@endif
+
 				</div>
 			</div>
 

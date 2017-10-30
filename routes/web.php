@@ -39,6 +39,10 @@ Route::get('/catalog/{slug}', [
 	'as' => 'product.detail',
 ])->where('slug', '[\w\d\-\_]+');
 
+Route::post('reviews/{product}',[
+	'uses' => '\Lunar\Http\Controllers\Admin\ReviewController@store',
+	'as' => 'review.store',
+]);
 
 /* Front-End Client */
 
@@ -102,6 +106,12 @@ Route::group(['middleware' => 'auth'], function(){
 		'as' => 'profile.address.store',
 	]);
 
+	/* Product Reviews */
+
+	Route::get('/profile/reviews', [
+		'uses' => '\Lunar\Http\Controllers\UserController@reviews',
+		'as' => 'profile.reviews',
+	]);
 
 	/* Wishlist */
 
@@ -240,6 +250,16 @@ Route::group(['middleware' => 'auth:admin'], function(){
 	Route::get('/admin/order-search', [
 	    'uses' => '\Lunar\Http\Controllers\Admin\SearchController@orderQuery',
 	    'as' => 'order.search.query',
+	]);
+
+	Route::get('/admin/reviews',[
+		'uses' => '\Lunar\Http\Controllers\Admin\ReviewController@index',
+		'as' => 'review.index',
+	]);
+
+	Route::get('/admin/reviews/{id}',[
+		'uses' => '\Lunar\Http\Controllers\Admin\ReviewController@approve',
+		'as' => 'review.approve',
 	]);
 
 	Route::resource('/admin/seo', 'Admin\SEOController');
