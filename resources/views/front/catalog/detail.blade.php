@@ -5,6 +5,9 @@
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-md-6">
+			<p class="mb-0">Category:</p>
+			<p><span class="badge badge-primary">{{ $product->category->name }}</span></p>
+
 			<img class="img-fluid" src="{{ asset('img/products/' . $product->image ) }}" alt="{{ $product->name }}">
 
 
@@ -144,10 +147,23 @@
 
 				</div>
 			</div>
-
-
 		</div>
 	</div>
+
+	<hr>
+	<h4>Related Products</h4>
+	<div class="row mt-3">
+		@foreach($related_products as $related)
+		<div class="col-md-3">
+			<div class="card">
+				<img class="img-fluid" src="{{ asset('img/products/' . $related->image ) }}" alt="{{ $related->name }}">
+
+				<p><a href="{{ route('product.detail', $related->slug) }}">{{ $related->name }}</a></p>
+			</div>
+		</div>
+		@endforeach
+	</div>
+
 </div>
 
 @endsection

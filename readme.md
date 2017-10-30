@@ -28,6 +28,7 @@
 		- Catalog View
 		- Detail View
 			- Review & Comment Functionality
+			- Related Products
 	- Shopping Cart
 	- Checkout Proccess w/ Payment with Stripe
 
@@ -44,7 +45,6 @@
 - [ ] Checkout Directly from Wishlist
 - [ ] Sales & Cupons
 - [ ] Multi-language (ES & US)
-- [ ] Related Products on Product Detail
 
 ### To-do List
 

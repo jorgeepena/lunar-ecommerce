@@ -36,8 +36,9 @@ class CatalogController extends Controller
     public function detail($slug){
 
         $product = Product::where('slug', '=', $slug)->first();
+        $related_products = Product::where('category_id', $product->category_id)->where('slug', '!=' , $product->slug)->take(4)->get();
 
-    	return view('front.catalog.detail')->with('product', $product);
+    	return view('front.catalog.detail')->with('product', $product)->with('related_products', $related_products);
     }
 
     public function cart()
