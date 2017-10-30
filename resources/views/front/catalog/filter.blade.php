@@ -11,15 +11,15 @@
 		<div class="col-md-9">
 			<div class="row align-items-center">
 				<div class="col">
-					<h6 class="text-uppercase mb-0"><small>All products</small></h6>
+					<h6 class="text-uppercase mb-0"><small>Products in: {{ $category->name }}</small></h6>
 				</div>
 				<div class="col text-right">
-					<span class="badge badge-primary mb-0">{{ $products->count() }} Products</span>
+					<span class="badge badge-primary mb-0">{{ $category->product()->count() }} Products</span>
 				</div>
 			</div>
 			<hr>
 			
-			@foreach($products->chunk(3) as $productGroup)
+			@foreach($category->product->chunk(3) as $productGroup)
 		    <div class="card-group">
 		        @foreach($productGroup as $product)
 
@@ -39,7 +39,5 @@
 		    @endforeach
 		</div>
 	</div>
-    
 </div>
-
 @endsection

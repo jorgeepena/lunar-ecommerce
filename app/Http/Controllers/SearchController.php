@@ -6,6 +6,7 @@ use DB;
 use Auth;
 
 use Lunar\Store\Product;
+use Lunar\Store\Category;
 
 use Illuminate\Http\Request;
 
@@ -20,6 +21,9 @@ class SearchController extends Controller
     		->orWhere('sku', 'LIKE', "%{$query}%")
     		->get();
 
-        return view('front.search.query')->with('products', $products);
+    	$categories = Category::where(DB::raw('name'), 'LIKE', "%{$query}%")
+    		->get();
+
+        return view('front.search.query')->with('products', $products)->with('categories', $categories);
     }
 }

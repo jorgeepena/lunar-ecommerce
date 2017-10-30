@@ -25,7 +25,7 @@
 			<h3 class="text-center"><i class="ionicons ion-sad-outline"></i> There are no results.</h3>
 		</div>
 	@else
-
+	<div class="row">
 		<div class="col-md-6">
 			<h5 class="text-uppercase"><small><i class="ionicons ion-images"></i> Products</small> <span class="badge badge-primary">{{ $products->count() }}</span></h5>
 			<hr>
@@ -36,6 +36,18 @@
 		    	@endforeach
 			</ul>
 		</div>
+
+		<div class="col-md-6">
+			<h5 class="text-uppercase"><small><i class="ionicons ion-images"></i> Categories</small> <span class="badge badge-primary">{{ $categories->count() }}</span></h5>
+			<hr>
+
+			<ul class="list-unstyled">
+				@foreach($categories as $category)
+					<li><a class="card p-3" href="#">{{ $category->name }}</a></li>
+		    	@endforeach
+			</ul>
+		</div>
+	</div>
 	@endif
 </div>
 

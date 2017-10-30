@@ -22,6 +22,11 @@ Route::get('/catalog', [
 	'as' => 'great-detail',
 ]);
 
+Route::get('/catalog/filter/{name}', [
+	'uses' => '\Lunar\Http\Controllers\CatalogController@filterCategory',
+	'as' => 'filter.category',
+]);
+
 Route::get('/search', [
     'uses' => '\Lunar\Http\Controllers\SearchController@query',
     'as' => 'search.query',

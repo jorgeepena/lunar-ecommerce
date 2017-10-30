@@ -13,6 +13,7 @@ use Lunar\Store\Order;
 use Lunar\Store\Cart;
 use Lunar\Store\Product;
 use Lunar\Store\Country;
+use Lunar\Store\Category;
 use Lunar\Address;
 
 use Illuminate\Http\Request;
@@ -29,16 +30,26 @@ class CatalogController extends Controller
     public function greatdetail()
     {
     	$products = Product::all();
+        $categories = Category::all();
 
-    	return view('front.catalog.great-detail')->with('products', $products);
+    	return view('front.catalog.great-detail')->with('products', $products)->with('categories', $categories);
     }
 
     public function detail($slug){
 
         $product = Product::where('slug', '=', $slug)->first();
-        $related_products = Product::where('category_id', $product->category_id)->where('slug', '!=' , $product->slug)->take(4)->get();
+        $related_products = Product::where('category_id', $product->category_id)->where('slug', '!=' , $product->slug)->take(4)->inRandomOrder()->get();
 
     	return view('front.catalog.detail')->with('product', $product)->with('related_products', $related_products);
+    }
+
+    public function filterCategory($name)
+    {
+        
+        $categories = Category::all();
+        $category = Category::where('name', '=', $name)->first();
+
+        return view('front.catalog.filter')->with('category', $category)->with('categories', $categories);
     }
 
     public function cart()
