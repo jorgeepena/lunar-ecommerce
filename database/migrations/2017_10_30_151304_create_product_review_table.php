@@ -38,7 +38,6 @@ class CreateProductReviewTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign(['product_id']);
         Schema::dropIfExists('product_reviews');
     }
 }

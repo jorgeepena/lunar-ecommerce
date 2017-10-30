@@ -5,8 +5,12 @@
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-md-6">
+			@if($product->category_id == NULL)
+			@else
 			<p class="mb-0">Category:</p>
 			<p><span class="badge badge-primary">{{ $product->category->name }}</span></p>
+			@endif
+			
 
 			<img class="img-fluid" src="{{ asset('img/products/' . $product->image ) }}" alt="{{ $product->name }}">
 
