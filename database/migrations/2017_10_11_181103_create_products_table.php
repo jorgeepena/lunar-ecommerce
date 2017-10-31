@@ -28,10 +28,6 @@ class CreateProductsTable extends Migration
             $table->string('stock')->nullable();
             $table->string('production_cost')->nullable();
 
-
-
-            $table->integer('category_id')->nullable()->unsigned();
-
             /* Aditional Info */
             $table->string('depth')->nullable();
             $table->string('lenght')->nullable();

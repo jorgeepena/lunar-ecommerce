@@ -19,6 +19,7 @@ class PageSEOTableSeeder extends Seeder
         	'page_keywords' => "Laravel, e-commerce, Lunar",
         	'page_google_robots' => "INFEX,FOLLOW,NOARCHIVE",
         	'page_og_type' => "website",
+            'page_logo' => "logo.png",
         ]);
 
         $seo->save();
