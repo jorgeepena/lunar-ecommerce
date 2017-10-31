@@ -155,7 +155,6 @@
                               <a class="dropdown-item" href="{{ route('products.index') }}"><i class="ionicons ion-ios-eye"></i> See All</a>
 
                               <a class="dropdown-item" href="{{ route('categories.index') }}"><i class="ionicons ion-grid"></i> Categories</a>
-                              <a class="dropdown-item" href="{{ route('tags.index') }}"><i class="ionicons ion-bookmark"></i>  Tags</a>
 
                               <hr>
                               <a class="dropdown-item" href="{{ route('review.index') }}"><i class="ionicons ion-bookmark"></i>  Reviews</a>

@@ -270,8 +270,6 @@ Route::group(['middleware' => 'auth:admin'], function(){
 	Route::resource('/admin/seo', 'Admin\SEOController');
 	Route::resource('/admin/products', 'Admin\ProductController');
 	Route::resource('/admin/categories', 'Admin\CategoryController');
-	Route::resource('/admin/tags', 'Admin\TagController');
-
 	Route::resource('/admin/clients', 'Admin\ClientController');
 	Route::resource('/admin/seo', 'Admin\SEOController');
 

@@ -22,6 +22,11 @@ class Product extends Model
         return $this->belongsTo('Lunar\Store\Category');
     }
 
+    public function subCategory()
+    {
+        return $this->belongsToMany('Lunar\Store\Category', 'product_category', 'product_id', 'category_id');
+    }
+
     public function reviews()
     {
         return $this->hasMany('Lunar\Store\Review', 'product_id');
