@@ -1,5 +1,15 @@
 @extends('layouts.front.default')
 
+@section('seo_options')
+	<title>{{ $product->name }}</title>
+	<meta name="description" content="{{ $product->description }}">
+
+	<meta property="og:title" content="{{ $product->name }}">
+	<meta property="og:image" content="{{ asset('img/products/' . $product->image ) }}">
+	<meta property="og:url" content="{{ route('product.detail', $product->slug) }}">
+	<meta property="og:description" content="{{ $product->description }}">
+@endsection
+
 @section('content')
 
 <div class="container mt-5">
@@ -162,7 +172,9 @@
 			<div class="card">
 				<img class="img-fluid" src="{{ asset('img/products/' . $related->image ) }}" alt="{{ $related->name }}">
 
-				<p><a href="{{ route('product.detail', $related->slug) }}">{{ $related->name }}</a></p>
+				<p class="mb-1"><a href="{{ route('product.detail', $related->slug) }}">{{ $related->name }}</a></p>
+
+				<p><small>$ {{ $related->price }}</small></p>
 			</div>
 		</div>
 		@endforeach

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-<head>
+<head prefix="og:http://ogp.me/ns#">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +8,31 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Lunar') }}</title>
+    @yield('seo_options')
+
+    <!-- SEO Options -->
+    <title>{{ $seo_options->page_title }}</title>
+    <meta name="description" content="{{ $seo_options->page_description }}">
+    <meta name="keywords" content="{{ $seo_options->page_keywords }}">
+    <meta name="robots" content="{{ $seo_options->page_google_robots }}">
+    
+    <!-- OG SEO -->
+    <meta property="og:title" content="{{ $seo_options->page_title }}">
+    <meta property="og:description" content="{{ $seo_options->page_description }}">
+    <meta property="og:url" content="{{ $seo_options->page_url }}">
+    <meta property="og:type" content="{{ $seo_options->page_og_type }}">
+    <meta property="og:image" content="{{ asset($seo_options->page_logo) }}">
+
+    <link rel="canonical" href="{{ $seo_options->page_canonical_url }}">
+    <link rel="alternate" href="{{ $seo_options->page_alternate_url }}">
 
     <!-- Favicon Routes -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#34495e">
-    <meta name="theme-color" content="#ecf0f1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset($seo_options->page_apple_touch_icon) }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset($seo_options->page_favicon_32_32) }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset($seo_options->page_favicon_16_16) }}">
+    <link rel="manifest" href="{{ asset($seo_options->page_manifest_file) }}">
+    <link rel="mask-icon" href="{{ asset($seo_options->page_safari_mask_icon) }}" color="{{ $seo_options->page_safari_mask_icon_color }}">
+    <meta name="theme-color" content="{{ $seo_options->page_theme_color_hex }}">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -31,7 +47,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('index') }}">L U N A R</a>
+                <a class="navbar-brand" href="{{ route('index') }}"><img src="{{ asset($seo_options->page_logo) }}" alt="{{ $seo_options->page_title }}"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -91,6 +107,7 @@
         </nav>
 
         @include('partials._messages')
+
         @yield('content')
 
         @include('layouts.utilities.footer')
