@@ -19,6 +19,7 @@
 			</div>
 			<hr>
 			
+			@if($category->product->count())
 			@foreach($category->product->chunk(3) as $productGroup)
 		    <div class="card-group">
 		        @foreach($productGroup as $product)
@@ -37,6 +38,12 @@
 		        @endforeach
 		    </div>
 		    @endforeach
+		    @else
+	       	<div class="text-center my-5">
+	       		<h4 class="mb-0">No products in this category.</h4>
+	       		<p>Try another one on the filter to the left.</p>
+	       	</div>
+	       	@endif
 		</div>
 	</div>
 </div>

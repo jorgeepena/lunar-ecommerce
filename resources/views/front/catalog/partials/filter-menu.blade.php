@@ -9,13 +9,21 @@
 			@if($category->parent_id != NULL || 0)
 
 			@else
-			<li class="list-group-item"><a href="{{ strtolower(route('filter.category', $category->name)) }}">{{ $category->name }} <span style="position:relative; top:3px;" class="badge badge-secondary float-right">{{ $category->product->count() }}</span></a></li>
+				@if($category->product->count() == 0)
+
+				@else
+					<li class="list-group-item"><a href="{{ strtolower(route('filter.category', $category->name)) }}">{{ $category->name }} <span style="position:relative; top:3px;" class="badge badge-secondary float-right">{{ $category->product->count() }}</span></a></li>
+				@endif
 			@endif
 
 			@foreach($category->getChilds($category->id) as $cat)
-				<small>
-				<li class="list-group-item list-group-item-secondary pl-5"><a href="{{ strtolower(route('filter.category', $cat->name)) }}">{{ $cat->name }} <span style="position:relative; top:3px;" class="badge badge-secondary float-right">{{ $cat->product->count() }}</span></a></li>
-				</small>
+				@if($cat->product->count() == 0)
+					
+				@else
+					<small>
+						<li class="list-group-item list-group-item-secondary pl-5"><a href="{{ strtolower(route('filter.category', $cat->name)) }}">{{ $cat->name }} <span style="position:relative; top:3px;" class="badge badge-secondary float-right">{{ $cat->product->count() }}</span></a></li>
+					</small>
+				@endif
 			@endforeach
 		@endforeach
 		</div>
