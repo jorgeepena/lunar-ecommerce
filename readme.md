@@ -137,6 +137,14 @@ sudo apt-get install unzip
 
 ### Install CURL + Composer
 
+If you are using PHP 7+ you'll need to install mods, use the following on the command line:
+
+```
+sudo apt-get install -y libapache2-mod-php7.0 php7.0-cli php7.0-common php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip
+```
+
+Now you can safely install Composer:
+
 ```
 sudo apt-get install curl php-curl php-mcrypt php-mbstring php-gettext
 curl -sS https://getcomposer.org/installer | php
@@ -151,6 +159,8 @@ sudo phpenmod mbstring
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
+
+
 
 ### Git CLONE of proyect on HTML folder
 
