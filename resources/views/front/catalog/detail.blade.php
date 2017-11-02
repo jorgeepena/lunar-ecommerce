@@ -15,11 +15,17 @@
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-md-6">
-			@if($product->category_id == NULL)
-			@else
 			<p class="mb-0">Category:</p>
-			<p><span class="badge badge-primary">{{ $product->category->name }}</span></p>
-			@endif
+			<ul class="list-inline">
+				@foreach($product->category as $category)
+					@if($category->product_id != $product->id)
+						<li class="list-inline-item"><span class="badge badge-primary">{{ $category->name }}</span></p>
+					@else
+						<li class="list-inline-item"><span class="badge badge-primary">Uncategorized</span></p>
+					@endif
+				@endforeach
+			</ul>
+
 			
 
 			<img class="img-fluid" src="{{ asset('img/products/' . $product->image ) }}" alt="{{ $product->name }}">
@@ -167,19 +173,13 @@
 	<hr>
 	<h4>Related Products</h4>
 	<div class="row mt-3">
-		@foreach($related_products as $related)
 		<div class="col-md-3">
-			<div class="card">
-				<img class="img-fluid" src="{{ asset('img/products/' . $related->image ) }}" alt="{{ $related->name }}">
-
-				<p class="mb-1"><a href="{{ route('product.detail', $related->slug) }}">{{ $related->name }}</a></p>
-
-				<p><small>$ {{ $related->price }}</small></p>
+			<div class="card text-center p-4">
+				<h5 class="mb-4">Keep exploring!</h5>
+				<a class="btn btn-primary" href="#">Go to catalog</a>
 			</div>
 		</div>
-		@endforeach
 	</div>
-
 </div>
 
 @endsection

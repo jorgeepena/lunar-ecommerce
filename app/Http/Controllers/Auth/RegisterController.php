@@ -7,6 +7,9 @@ use Lunar\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use View;
+use Lunar\Store\SEO;
+
 class RegisterController extends Controller
 {
     /*
@@ -28,6 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    protected $seo_options;
 
     /**
      * Create a new controller instance.
@@ -37,6 +41,9 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        $this->seo_options = SEO::find(1);
+        View::share('seo_options', $this->seo_options);
     }
 
     /**

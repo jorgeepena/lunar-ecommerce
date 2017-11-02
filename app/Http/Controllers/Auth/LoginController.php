@@ -5,6 +5,9 @@ namespace Lunar\Http\Controllers\Auth;
 use Lunar\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use View;
+use Lunar\Store\SEO;
+
 class LoginController extends Controller
 {
     /*
@@ -26,6 +29,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    protected $seo_options;
 
     /**
      * Create a new controller instance.
@@ -35,5 +39,8 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+
+        $this->seo_options = SEO::find(1);
+        View::share('seo_options', $this->seo_options);
     }
 }

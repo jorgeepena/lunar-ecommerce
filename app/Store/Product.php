@@ -19,11 +19,6 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo('Lunar\Store\Category');
-    }
-
-    public function subCategory()
-    {
         return $this->belongsToMany('Lunar\Store\Category', 'product_category', 'product_id', 'category_id');
     }
 
@@ -31,7 +26,6 @@ class Product extends Model
     {
         return $this->hasMany('Lunar\Store\Review', 'product_id');
     }
-
 
     public static function getProductById($id)
     {

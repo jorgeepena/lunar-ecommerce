@@ -2,11 +2,13 @@
 
 namespace Lunar\Http\Controllers\Admin;
 
-
-use Lunar\Store\SEO;
-
 use Illuminate\Http\Request;
 use Lunar\Http\Controllers\Controller;
+
+use Session;
+use Auth;
+
+use Lunar\Store\SEO;
 
 class SEOController extends Controller
 {
@@ -72,7 +74,7 @@ class SEOController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //Validar
         $this -> validate($request, array(
@@ -80,23 +82,22 @@ class SEOController extends Controller
         ));
 
         // Guardar datos en la base de datos
-        $seo = SEO::find($id);
+        $seo = SEO::find(1);
 
-        $seo->titulo = $request->input('titulo');
-        $seo->resumen = $request->input('resumen');
-        $seo->cuerpo = Purifier::clean($request->input('cuerpo'));
+        $seo->page_title = $request->input('page_title');
+        $seo->page_url = $request->input('page_url');
+        $seo->page_description = $request->input('page_description');
+        $seo->page_keywords = $request->input('page_keywords');
 
-        $seo->destacado = $request->input('destacado');
-
-        $seo->autor_id = $request->input('autor_id');
-        $seo->categoria_id = $request->input('categoria_id');
-
-        $seo->slug = $request->input('slug');
+        $seo->page_theme_color_hex = $request->input('page_theme_color_hex');
+        $seo->page_canonical_url = $request->input('page_canonical_url');
+        $seo->page_alternate_url = $request->input('page_alternate_url');
+        $seo->page_url = $request->input('page_url');
 
         $seo->save();
 
         // Mensaje de aviso server-side
-        Session::flash('exito', 'Your SEO Configuration was succesfully saved.');
+        Session::flash('success', 'Your SEO Configuration was succesfully saved.');
 
         // Redireccionar con información de exito a publicacion.show
 

@@ -38,9 +38,9 @@ class CatalogController extends Controller
     public function detail($slug){
 
         $product = Product::where('slug', '=', $slug)->first();
-        $related_products = Product::where('category_id', $product->category_id)->where('slug', '!=' , $product->slug)->take(4)->inRandomOrder()->get();
+        //$category = Category::subCategory()->where('category_id', 'category_id')->where('slug', '!=' , $product->slug)->take(4)->inRandomOrder()->get();
 
-    	return view('front.catalog.detail')->with('product', $product)->with('related_products', $related_products);
+    	return view('front.catalog.detail')->with('product', $product);
     }
 
     public function filterCategory($name)

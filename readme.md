@@ -28,7 +28,6 @@
 		- Catalog View
 		- Detail View
 			- Review & Comment Functionality
-			- Related Products
 	- Shopping Cart
 	- Checkout Proccess w/ Payment with Stripe
 
@@ -43,6 +42,7 @@
 ### Working On
 
 - [ ] Checkout Directly from Wishlist
+- [ ] Related Products
 - [ ] Sales & Cupons
 - [ ] Multi-language (ES & US)
 
@@ -146,8 +146,8 @@ sudo apt-get install -y libapache2-mod-php7.0 php7.0-cli php7.0-common php7.0-mb
 Now you can safely install Composer:
 
 ```
-sudo apt-get install curl php-curl php-mcrypt php-mbstring php-gettext
-curl -sS https://getcomposer.org/installer | php
+sudo apt-get install curl php7.0-curl php7.0-mcrypt php7.0-mbstring php7.0-gettext
+curl -sS https://getcomposer.org/installer | php7.0
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
